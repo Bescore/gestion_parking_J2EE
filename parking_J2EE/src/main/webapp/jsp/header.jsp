@@ -85,7 +85,7 @@
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/Park"></c:url>">Trouver une place</a>
 					</li>
 					<li class="nav-item "><a
-						class="nav-link " href="#" id="dropdown01">Mon compte</a>
+						class="nav-link " href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon compte</a>
 						</li>
 				</ul>
 				<span class="nav-item"> <a class="btn-outline-sm"

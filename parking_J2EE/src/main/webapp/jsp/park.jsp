@@ -42,6 +42,7 @@
 		<!-- end of details 1 -->
 
 		<!-- Details Modal -->
+		<form>
 		<div
 			id="staticBackdrop"
 			class="modal fade"
@@ -57,63 +58,42 @@
 							data-bs-dismiss="modal"
 							aria-label="Close"
 						></button>
-						<div class="col-lg-8">
+						<div class="col-lg-8 overflow-auto d-flex">
 							<div class="image-container">
-								<img
-									class="img-fluid"
-									src="images/details-modal.jpg"
-									alt="alternative"
-								/>
+							<div  class="p-4" style="border:1px #f3f3f3 solid;display:inline-block"><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="XXX"> <span class="fs-2">A1</span><i class="text-success fa-solid fa-circle-check"></i></div>
 							</div>
 							<!-- end of image-container -->
+							<div class="image-container">
+							<div  class="p-4" style="border:1px #f3f3f3 solid;display:inline-block"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"  disabled> <span class="fs-2">A1</span><i class="text-danger fa-solid fa-circle-check"></i></div>
+							</div>
 						</div>
 						<!-- end of col -->
 						<div class="col-lg-4">
-							<h3>Goals Setting</h3>
+							<h3>Choisissez votre emplacement</h3>
 							<hr />
 							<p>
-								In gravida at nunc sodales pretium. Vivamus semper, odio vitae
-								mattis auctor, elit elit semper magna ac tum nico vela spider
+								La place de parking peut vous être attribué si celle-ci est disponible.
 							</p>
-							<h4>User Feedback</h4>
-							<p>
-								Sapien vitae eros. Praesent ut erat a tellus posuere nisi more
-								thico cursus pharetra finibus posuere nisi. Vivamus feugiat
-							</p>
+							<h4>Légende</h4>
+							
 							<ul class="list-unstyled li-space-lg">
 								<li class="d-flex">
 									<i class="fas fa-chevron-right"></i>
 									<div class="flex-grow-1">
-										Tincidunt sem vel brita bet mala
+										 Place disponible <i class="text-success fa-solid fa-circle-check"></i>
 									</div>
+									
 								</li>
 								<li class="d-flex">
 									<i class="fas fa-chevron-right"></i>
 									<div class="flex-grow-1">
-										Sapien condimentum sacoz sil necr
+										Place non disponible <i class=" text-danger fa-solid fa-xmark"></i>
 									</div>
 								</li>
-								<li class="d-flex">
-									<i class="fas fa-chevron-right"></i>
-									<div class="flex-grow-1">
-										Fusce interdum nec ravon fro urna
-									</div>
-								</li>
-								<li class="d-flex">
-									<i class="fas fa-chevron-right"></i>
-									<div class="flex-grow-1">
-										Integer pulvinar biolot bat tortor
-									</div>
-								</li>
-								<li class="d-flex">
-									<i class="fas fa-chevron-right"></i>
-									<div class="flex-grow-1">
-										Id ultricies fringilla fangor raq trinit
-									</div>
-								</li>
+								
 							</ul>
-							<a id="modalCtaBtn" class="btn-solid-reg" href="#your-link"
-								>Details</a
+							<button id="modalCtaBtn" type="submit" class="btn-solid-reg"
+								>Valider</button
 							>
 							<button
 								type="button"
@@ -131,6 +111,7 @@
 			</div>
 			<!-- end of modal-dialog -->
 		</div>
+		</form>
 		<!-- end of modal -->
 		<!-- end of details modal -->
 
