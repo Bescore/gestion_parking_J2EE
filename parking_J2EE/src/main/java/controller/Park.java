@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Footer
+ * Servlet implementation class Park
  */
-@WebServlet("/Footer")
-public class Footer extends HttpServlet {
+@WebServlet("/Park")
+public class Park extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Footer() {
+    public Park() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class Footer extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("jsp/footer.jsp").include(request, response);
+		request.getRequestDispatcher("jsp/park.jsp").forward(request, response);
 	}
 
 	/**

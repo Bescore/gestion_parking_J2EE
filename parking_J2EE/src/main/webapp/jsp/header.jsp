@@ -79,26 +79,14 @@
 				id="navbarsExampleDefault">
 				<ul class="navbar-nav ms-auto navbar-nav-scroll">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#header">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#features">Features</a>
+						aria-current="page" href="<c:url value="/home#"></c:url>">Accueil</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/home#features"></c:url>">Présentation</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#details">Details</a>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/Park"></c:url>">Trouver une place</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a>
-					</li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="dropdown01"
-						data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
-						<ul class="dropdown-menu" aria-labelledby="dropdown01">
-							<li><a class="dropdown-item" href="article.html">Article
-									Details</a></li>
-							<li><div class="dropdown-divider"></div></li>
-							<li><a class="dropdown-item" href="terms.html">Terms
-									Conditions</a></li>
-							<li><div class="dropdown-divider"></div></li>
-							<li><a class="dropdown-item" href="privacy.html">Privacy
-									Policy</a></li>
-						</ul></li>
+					<li class="nav-item "><a
+						class="nav-link " href="#" id="dropdown01">Mon compte</a>
+						</li>
 				</ul>
 				<span class="nav-item"> <a class="btn-outline-sm"
 					href="<c:url value="/Login"></c:url>">se connecter</a>
@@ -110,6 +98,7 @@
 	</nav>
 	<!-- end of navbar -->
 	<!-- end of navigation -->
+	
 
 	
 	
