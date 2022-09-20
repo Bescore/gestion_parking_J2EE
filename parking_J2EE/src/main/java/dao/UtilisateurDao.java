@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -55,5 +56,49 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+	@SuppressWarnings("static-access")
+	public ArrayList<Utilisateur>  findByConnexion(Utilisateur object) {
+		// TODO Auto-generated method stub
+		BCrypt encoder = new BCrypt();
+		
+		ArrayList<Utilisateur> userstab= new ArrayList<Utilisateur>();
+		try {
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM utilisateur where email=? AND isActive_user=?");
+			
+			sql.setString(1, object.getEmail());
+			sql.setInt(2,1);
+			
+		
+			ResultSet rs=sql.executeQuery();
+			if(rs.next()) {
+				//tester le hash avec checkpw
+				
+				if(encoder.checkpw(object.getPassword(),rs.getString("password"))) {
+					
+				// Créer un user
+				Utilisateur user= new Utilisateur();
+				user.setId_utilisateur(rs.getInt("Id_utilisateur"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setDate_inscription(rs.getString("date_inscription"));
+				user.setIsActive(rs.getInt("isActive_user"));
+				
+				//ajouter le user au tableau
+				userstab.add(user);
+				System.out.println("utilisateur trouvé (connexion)");
+				}
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return userstab;
+		
+		
+	}
+	
 }

@@ -25,20 +25,20 @@
                             <p class="mb-4">Vous n'avez pas d'identifiants? <a class="blue" href='<c:url value="/Signup"></c:url>'>S'inscrire</a></p>
 
                             <!-- Log In Form -->
-                            <form>
+                            <form method="post">
                                 <div class="mb-4 form-floating">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" class="form-control" name="email" placeholder="name@example.com">
                                     <label for="floatingInput">Email </label>
                                 </div>
                                 <div class="mb-4 form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
                                     <label for="floatingPassword">Mot de passe</label>
                                 </div>
                                 <div class="mb-4 form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                     <label class="form-check-label" for="exampleCheck1">Je suis d'accord avec la  <a href="privacy.html">politique de confidentialité</a> et <a href="terms.html">les conditions d'utilisation</a></label>
                                 </div>
-                                <button type="submit" class="form-control-submit-button">Valider</button>
+                                <button type="submit" name="se_connecter" class="form-control-submit-button">Valider</button>
                             </form>
                             <!-- end of log in form -->
 

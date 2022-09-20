@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.UtilisateurDao;
 import modele.Utilisateur;
@@ -36,9 +35,6 @@ public class Signup extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// recuperer session
-		HttpSession session = request.getSession();
 
 		request.getRequestDispatcher("jsp/signup.jsp").forward(request, response);
 	}
