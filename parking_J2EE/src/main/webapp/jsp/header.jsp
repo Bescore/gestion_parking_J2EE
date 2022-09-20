@@ -56,7 +56,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 <!-- Favicon  -->
-<link rel="icon" href="images/park_on_top.png">
+<link rel="icon" href="images/favicon.png">
 
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">

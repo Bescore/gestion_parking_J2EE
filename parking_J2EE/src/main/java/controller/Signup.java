@@ -57,12 +57,13 @@ public class Signup extends HttpServlet {
 		String prenom = request.getParameter("prenom");
 		String password = request.getParameter("password");
 		
-		System.out.println(Pattern.matches("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})", password));
+		/*System.out.println(password);
+		System.out.println(Pattern.matches("^[a-zA-Z- ]+$",nom));*/
 		
-		if(Pattern.matches("/^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$/", email)&&
-				Pattern.matches("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/", password)&&
-				Pattern.matches("/^[a-zA-Z-]+$/", nom)&&
-				Pattern.matches("/^[a-zA-Z-]+$/", prenom)) {
+		if(Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email)&&
+				Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}.]:;',?/*~$^+=<>]).{8,20}$", password)&&
+				Pattern.matches("^[a-zA-Z- ]+$", nom)&&
+				Pattern.matches("^[a-zA-Z- ]+$", prenom)) {
 		
 		if (request.getParameter("s'inscrire") != null && !email.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !password.isEmpty()) {
 

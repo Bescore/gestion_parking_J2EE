@@ -20,8 +20,7 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 		//encoder le mot de passe avant l'entré en BDD
 		BCrypt encoder = new BCrypt();
 		object.setPassword(encoder.hashpw(object.getPassword(), BCrypt.gensalt()));
-		//sysout du mot de pass hashé
-		System.out.println(encoder.hashpw(object.getPassword(), BCrypt.gensalt()));
+		
 		try {
 			PreparedStatement sql = connect.prepareStatement("INSERT INTO utilisateur(nom,prenom,date_inscription,email,password) VALUES(?,?,now(),?,?)");
 			

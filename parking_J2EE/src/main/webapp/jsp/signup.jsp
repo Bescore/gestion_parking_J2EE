@@ -51,21 +51,25 @@
 					<!-- Sign Up Form -->
 					<form method="post">
 						<div class="mb-4 form-floating">
-							<input type="email" class="form-control" name="email"
+							<input type="email" class="form-control" name="email" data-placement="top"
+							 title="exemple: parkfast@parfast.com"
 								placeholder="name@example.com"> <label
 								for="floatingInput">Email </label>
 						</div>
 						<div class="mb-4 form-floating">
-							<input type="text" class="form-control" name="nom"
+							<input type="text" class="form-control" name="nom" data-placement="top"
+							 title="expression régulière, espace, tirets autorisé"
 								placeholder="nom"> <label for="floatingInput">nom</label>
 						</div>
 						<div class="mb-4 form-floating">
-							<input type="text" class="form-control" name="prenom"
+							<input type="text" class="form-control" name="prenom" data-toggle="tooltip" data-placement="top"
+							 title="expression régulière, espace, tirets autorisé"
 								placeholder="prenom"> <label for="floatingInput3">prenom</label>
 						</div>
 						<div class="mb-4 form-floating">
 							<input type="password" class="form-control" name="password"
-								placeholder="mot de passe"> <label
+								placeholder="mot de passe" data-toggle="tooltip" data-placement="top" 
+								title="8-20 , caractère , majuscule , minuscule , caractère spéciale , chiffre de 0-9"> <label
 								for="floatingPassword">Mot de passe</label>
 						</div>
 						<div class="mb-4 form-check">
