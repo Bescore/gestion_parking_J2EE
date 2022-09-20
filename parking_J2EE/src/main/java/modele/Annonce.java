@@ -1,16 +1,16 @@
 package modele;
 
-public class annonce {
+public class Annonce {
 	private int id_annonce;
 	private String titre_annonce;
 	private String message_annonce;
 	private String url_annonce;
 
-	public annonce() {
+	public Annonce() {
 
 	}
 
-	public annonce(int id_annonce, String titre_annonce, String message_annonce, String url_annonce) {
+	public Annonce(int id_annonce, String titre_annonce, String message_annonce, String url_annonce) {
 		super();
 		this.id_annonce = id_annonce;
 		this.titre_annonce = titre_annonce;

@@ -1,6 +1,6 @@
 package modele;
 
-public class administrateur extends personne {
+public class Administrateur extends Personne {
 
 	private String privilèges;
 

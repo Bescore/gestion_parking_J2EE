@@ -1,17 +1,17 @@
 package modele;
 
-public class avis {
+public class Avis {
 	private int id_avis;
 	private String commentaire;
 	private int note;
-	private utilisateur utilisateur;
-	private place_parking place_parking;
+	private Utilisateur utilisateur;
+	private Place_parking place_parking;
 
-	public avis() {
+	public Avis() {
 	}
 
-	public avis(int id_avis, String commentaire, int note, modele.utilisateur utilisateur,
-			modele.place_parking place_parking) {
+	public Avis(int id_avis, String commentaire, int note, modele.Utilisateur utilisateur,
+			modele.Place_parking place_parking) {
 		super();
 		this.id_avis = id_avis;
 		this.commentaire = commentaire;
@@ -44,19 +44,19 @@ public class avis {
 		this.note = note;
 	}
 
-	public utilisateur getUtilisateur() {
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(utilisateur utilisateur) {
+	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-	public place_parking getPlace_parking() {
+	public Place_parking getPlace_parking() {
 		return place_parking;
 	}
 
-	public void setPlace_parking(place_parking place_parking) {
+	public void setPlace_parking(Place_parking place_parking) {
 		this.place_parking = place_parking;
 	}
 

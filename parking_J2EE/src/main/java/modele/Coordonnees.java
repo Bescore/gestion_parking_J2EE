@@ -1,6 +1,6 @@
 package modele;
 
-public class coordonnees {
+public class Coordonnees {
 
 	private int id_coordonnees;
 	private String nom_entreprise;
@@ -9,11 +9,11 @@ public class coordonnees {
 	private String telephone;
 	private String tarifs;
 
-	public coordonnees() {
+	public Coordonnees() {
 
 	}
 
-	public coordonnees(int id_coordonnees, String nom_entreprise, String adresse, String email_coord, String telephone,
+	public Coordonnees(int id_coordonnees, String nom_entreprise, String adresse, String email_coord, String telephone,
 			String tarifs) {
 		super();
 		this.id_coordonnees = id_coordonnees;

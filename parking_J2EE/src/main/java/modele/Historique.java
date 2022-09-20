@@ -1,17 +1,17 @@
 package modele;
 
-public class historique {
+public class Historique {
 	private int id_historique;
 	private String duree_occupation;
 	private String date_attribution;
-	private utilisateur utilisateur;
+	private Utilisateur utilisateur;
 
-	public historique() {
+	public Historique() {
 
 	}
 
-	public historique(int id_historique, String duree_occupation, String date_attribution,
-			modele.utilisateur utilisateur) {
+	public Historique(int id_historique, String duree_occupation, String date_attribution,
+			modele.Utilisateur utilisateur) {
 		super();
 		this.id_historique = id_historique;
 		this.duree_occupation = duree_occupation;
@@ -43,11 +43,11 @@ public class historique {
 		this.date_attribution = date_attribution;
 	}
 
-	public utilisateur getUtilisateur() {
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(utilisateur utilisateur) {
+	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 

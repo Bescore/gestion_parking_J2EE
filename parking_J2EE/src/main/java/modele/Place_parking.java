@@ -1,18 +1,18 @@
 package modele;
 
-public class place_parking {
+public class Place_parking {
 	private int id_place_parking;
 	private String image_url;
 	private int isActive_place_parking;
-	private utilisateur utilisateur;
-	private etage etage;
+	private Utilisateur utilisateur;
+	private Etage etage;
 
-	public place_parking() {
+	public Place_parking() {
 
 	}
 
-	public place_parking(int id_place_parking, String image_url, int isActive_place_parking,
-			modele.utilisateur utilisateur, modele.etage etage) {
+	public Place_parking(int id_place_parking, String image_url, int isActive_place_parking,
+			modele.Utilisateur utilisateur, modele.Etage etage) {
 		super();
 		this.id_place_parking = id_place_parking;
 		this.image_url = image_url;
@@ -45,19 +45,19 @@ public class place_parking {
 		this.isActive_place_parking = isActive_place_parking;
 	}
 
-	public utilisateur getUtilisateur() {
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(utilisateur utilisateur) {
+	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-	public etage getEtage() {
+	public Etage getEtage() {
 		return etage;
 	}
 
-	public void setEtage(etage etage) {
+	public void setEtage(Etage etage) {
 		this.etage = etage;
 	}
 

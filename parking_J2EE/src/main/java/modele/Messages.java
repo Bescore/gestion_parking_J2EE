@@ -1,16 +1,16 @@
 package modele;
 
-public class messages {
+public class Messages {
 	private int id_messages;
 	private String sujet;
 	private String message_email;
 	private int etat;
-	private utilisateur utilisateur;
+	private Utilisateur utilisateur;
 
-	public messages() {
+	public Messages() {
 	}
 
-	public messages(int id_messages, String sujet, String message_email, int etat, modele.utilisateur utilisateur) {
+	public Messages(int id_messages, String sujet, String message_email, int etat, modele.Utilisateur utilisateur) {
 		super();
 		this.id_messages = id_messages;
 		this.sujet = sujet;
@@ -51,11 +51,11 @@ public class messages {
 		this.etat = etat;
 	}
 
-	public utilisateur getUtilisateur() {
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(utilisateur utilisateur) {
+	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 

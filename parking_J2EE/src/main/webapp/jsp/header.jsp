@@ -40,6 +40,7 @@
 <script defer  src="js/scripts.js"></script>
 <!-- Custom scripts -->
 
+
 <!-- font_awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -51,12 +52,15 @@
 <link href="css/swiper.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 <!-- Favicon  -->
-<link rel="icon" href="images/favicon.png">
+<link rel="icon" href="images/park_on_top.png">
 
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
-
+	
 	<!-- Navigation -->
 	<nav id="navbarExample"
 		class="navbar navbar-expand-lg fixed-top navbar-light"
@@ -88,9 +92,21 @@
 						class="nav-link " href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon compte</a>
 						</li>
 				</ul>
+				<c:if test="${empty isconnected }">
 				<span class="nav-item"> <a class="btn-outline-sm"
-					href="<c:url value="/Login"></c:url>">se connecter</a>
+					href="<c:url value="/Login"></c:url>">Se connecter</a>
 				</span>
+				</c:if>
+				<c:if test="${!empty isconnected }">
+				<span class="nav-item"> Bonjour , <c:out value="${nom }"></c:out> 
+				<c:out value="${prenom }"></c:out>
+				</span>
+				</c:if>
+				<c:if test="${!empty isconnected }">
+				<span class="nav-item"> <a class="btn-outline-sm"
+					href="<c:url value="/Login"></c:url>">Se déconnecter</a>
+				</span>
+				</c:if>
 			</div>
 			<!-- end of navbar-collapse -->
 		</div>
@@ -99,7 +115,6 @@
 	<!-- end of navbar -->
 	<!-- end of navigation -->
 	
-
 	
 	
 	
