@@ -4,6 +4,7 @@ public class Place_parking {
 	private int id_place_parking;
 	private String image_url;
 	private int isActive_place_parking;
+	private String nom_place;
 	private Utilisateur utilisateur;
 	private Etage etage;
 
@@ -11,12 +12,13 @@ public class Place_parking {
 
 	}
 
-	public Place_parking(int id_place_parking, String image_url, int isActive_place_parking,
-			modele.Utilisateur utilisateur, modele.Etage etage) {
+	public Place_parking(int id_place_parking, String image_url, int isActive_place_parking, String nom_place,
+			Utilisateur utilisateur, Etage etage) {
 		super();
 		this.id_place_parking = id_place_parking;
 		this.image_url = image_url;
 		this.isActive_place_parking = isActive_place_parking;
+		this.nom_place = nom_place;
 		this.utilisateur = utilisateur;
 		this.etage = etage;
 	}
@@ -45,6 +47,14 @@ public class Place_parking {
 		this.isActive_place_parking = isActive_place_parking;
 	}
 
+	public String getNom_place() {
+		return nom_place;
+	}
+
+	public void setNom_place(String nom_place) {
+		this.nom_place = nom_place;
+	}
+
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -63,9 +73,10 @@ public class Place_parking {
 
 	@Override
 	public String toString() {
-		return "place_parking [id_place_parking=" + id_place_parking + ", image_url=" + image_url
-				+ ", isActive_place_parking=" + isActive_place_parking + ", utilisateur=" + utilisateur + ", etage="
-				+ etage + "]";
+		return "Place_parking [id_place_parking=" + id_place_parking + ", image_url=" + image_url
+				+ ", isActive_place_parking=" + isActive_place_parking + ", nom_place=" + nom_place + ", utilisateur="
+				+ utilisateur + ", etage=" + etage + "]";
 	}
 
+	
 }

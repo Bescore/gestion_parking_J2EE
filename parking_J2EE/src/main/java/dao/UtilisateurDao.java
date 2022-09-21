@@ -89,15 +89,12 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 				//ajouter le user au tableau
 				userstab.add(user);
 				}
-			}
-			
+			}	
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
 		}
 		return userstab;
-		
-		
 	}
 	
 }
