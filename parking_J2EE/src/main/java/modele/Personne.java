@@ -1,25 +1,16 @@
 package modele;
 
-public class personne {
+public class Personne {
 	private int id_utilisateur;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String password;
+	private String Date_inscription;
 	private int isActive;
 
-	public personne() {
+	public Personne() {
 
-	}
-
-	public personne(int id_utilisateur, String nom, String prenom, String email, String password, int isActive) {
-
-		this.id_utilisateur = id_utilisateur;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.password = password;
-		this.isActive = isActive;
 	}
 
 	public int getId_utilisateur() {
@@ -62,6 +53,14 @@ public class personne {
 		this.password = password;
 	}
 
+	public String getDate_inscription() {
+		return Date_inscription;
+	}
+
+	public void setDate_inscription(String date_inscription) {
+		Date_inscription = date_inscription;
+	}
+
 	public int getIsActive() {
 		return isActive;
 	}
@@ -73,7 +72,7 @@ public class personne {
 	@Override
 	public String toString() {
 		return "personne [id_utilisateur=" + id_utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
-				+ ", password=" + password + ", isActive=" + isActive + "]";
+				+ ", password=" + password + ", Date_inscription=" + Date_inscription + ", isActive=" + isActive + "]";
 	}
 
 }

@@ -32,7 +32,7 @@
             <ul class="list-group list-group-flush rounded-3">
               <li class="list-group-item text-center p-3 ">
                 
-                <p class="mb-0 py-5 ">Numéro de place</p>
+                <p class="mb-0 py-5 ">Véhicule</p>
               </li>
             </ul>
           </div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<!-- Modal d'annonce -->
+<script defer src="js/modal_annonce.js"></script>
 <!-- Webpage Title -->
 <title>Home</title>
 <c:import url="/Header"></c:import>
@@ -88,8 +90,12 @@
 					</div>
 					<div class="card-body">
 						<h4 class="card-title">Contact</h4>
-						<p>Vous avez la possibilité de <a href="<c:url value="/contact"></c:url>">nous contacter</a> à tout moment.
-							Un conseiller vous accompagnera tout au long du processus.</p>
+						<p>
+							Vous avez la possibilité de <a
+								href="<c:url value="/contact"></c:url>">nous contacter</a> à
+							tout moment. Un conseiller vous accompagnera tout au long du
+							processus.
+						</p>
 					</div>
 				</div>
 				<!-- end of card -->
@@ -104,5 +110,23 @@
 <!-- end of cards-1 -->
 <!-- end of services -->
 
+<!-- Modal d'annonce -->
+<div class="modal fade" id="modal_annonce" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Annonce</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body" id="modal_content"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary"
+					data-bs-dismiss="modal">Fermer la fenêtre</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <c:import url="/Footer"></c:import>

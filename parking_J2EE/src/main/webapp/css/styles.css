@@ -454,11 +454,12 @@ a:hover {
 	border: none;
 	font-size: 1.25rem;
 }
-
+/*********************/
+/**Custom jean-Marie**/
+/*********************/
 :root{
 	--bg-yellow:#fecd45;
 }
-
 /******************/
 /*     Header     */
 /******************/

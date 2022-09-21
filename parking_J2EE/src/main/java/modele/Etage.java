@@ -1,15 +1,15 @@
 package modele;
 
-public class etage {
+public class Etage {
 
 	private int id_etage;
 	private int numero_etage;
 
-	public etage() {
+	public Etage() {
 
 	}
 
-	public etage(int id_etage, int numero_etage) {
+	public Etage(int id_etage, int numero_etage) {
 		super();
 		this.id_etage = id_etage;
 		this.numero_etage = numero_etage;
