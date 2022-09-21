@@ -88,9 +88,11 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/Park"></c:url>">Trouver une place</a>
 					</li>
+					<c:if test="${!empty isconnected }">
 					<li class="nav-item "><a
 						class="nav-link " href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon compte</a>
 						</li>
+						</c:if>
 				</ul>
 				<c:if test="${empty isconnected }">
 				<span class="nav-item"> <a class="btn-outline-sm"

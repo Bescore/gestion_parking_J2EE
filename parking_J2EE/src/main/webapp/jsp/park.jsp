@@ -33,7 +33,9 @@
 <!-- end of details 1 -->
 
 <!-- Details Modal -->
-<form>
+
+
+<form method="post">
 	<div id="staticBackdrop" class="modal fade" tabindex="-1"
 		aria-hidden="true">
 		<div class="modal-dialog">
@@ -42,26 +44,41 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 					<div class="col-lg-8 overflow-auto d-flex">
-						<div class="image-container">
-							<div class="p-4"
-								style="border: 1px #f3f3f3 solid; display: inline-block">
-								<input class="form-check-input" type="radio"
-									name="flexRadioDefault" id="flexRadioDefault1" value="XXX">
-								<span class="fs-2">A1</span><i
-									class="text-success fa-solid fa-circle-check"></i>
-							</div>
+
+						<div class="image-container text-light">
+							<c:forEach items="${placeParkingTab }" var="element">
+								<c:choose>
+									<c:when
+										test="${element.utilisateur.id_utilisateur==0|| empty element.utilisateur.id_utilisateur}">
+										<div class="p-4 image_parking"
+											style="border: 1px #f3f3f3 solid; display: inline-block;">
+											<input class="form-check-input" type="radio"
+												name="choix_place" value="${element.id_place_parking }"
+												value="XXX"> <span class="fs-3"><c:out
+													value="${element.nom_place }"></c:out> </span><i
+												class="text-success fa-solid fa-circle-check"></i>
+										</div>
+									</c:when>
+
+									<c:when
+										test="${element.utilisateur.id_utilisateur!=0|| !empty element.utilisateur.id_utilisateur}">
+										<div class="p-4 image_parking"
+											style="border: 1px #f3f3f3 solid; display: inline-block;">
+											<input class="form-check-input" type="radio"
+												name="choix_place" value="${element.id_place_parking }"
+												disabled> <span class="fs-2"><c:out
+													value="${element.nom_place }"></c:out> </span> <i
+												class=" text-danger fa-solid fa-xmark"></i>
+										</div>
+									</c:when>
+								</c:choose>
+							</c:forEach>
 						</div>
-						<!-- end of image-container -->
-						<div class="image-container">
-							<div class="p-4"
-								style="border: 1px #f3f3f3 solid; display: inline-block">
-								<input class="form-check-input" type="radio"
-									name="exampleRadios" id="exampleRadios3" disabled> <span
-									class="fs-2">A1</span><i
-									class="text-danger fa-solid fa-circle-check"></i>
-							</div>
-						</div>
+
+
+
 					</div>
+
 					<!-- end of col -->
 					<div class="col-lg-4">
 						<h3>Choisissez votre emplacement</h3>
@@ -82,17 +99,31 @@
 								</div></li>
 
 						</ul>
-						<h4>Choisissez le véhicule</h4>
-						<select class="form-select form-select-sm my-3"
-							aria-label=".form-select-sm example">
-							<option selected>Open this select menu</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
-						<button id="modalCtaBtn" type="submit" class="btn-solid-reg">Valider</button>
+
+						<c:if test="${!empty isconnected }">
+							<h4>Marque et modèle du véhicule</h4>
+							<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">Marque</label>
+								<input type="text" class="form-control" name="marque"
+									placeholder="Citroën, Renault, Toyota">
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">Modèle</label>
+								<input type="text" class="form-control" name="modele"
+									placeholder="C4, scenic, Yaris">
+							</div>
+						</c:if>
+						<c:if test="${!empty isconnected }">
+							<button name="valider_choix_de_place" type="submit" class="btn-solid-reg">Valider</button>
+						</c:if>
+						<c:if test="${empty isconnected }">
+							<a id="modalCtaBtn" href="<%request.getContextPath();%>Login"
+								class="btn-solid-reg">Valider</a>
+						</c:if>
+
 						<button type="button" class="btn-outline-reg"
 							data-bs-dismiss="modal">Close</button>
+
 					</div>
 					<!-- end of col -->
 				</div>
@@ -103,6 +134,8 @@
 		<!-- end of modal-dialog -->
 	</div>
 </form>
+
+
 <!-- end of modal -->
 <!-- end of details modal -->
 
@@ -144,8 +177,7 @@
 
 						<div>
 							<a class="btn-solid-reg" data-bs-toggle="modal"
-								data-bs-target="#staticBackdrop">Places
-								disponibles</a>
+								data-bs-target="#staticBackdrop">Places disponibles</a>
 						</div>
 					</div>
 				</div>

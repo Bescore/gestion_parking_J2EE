@@ -60,11 +60,11 @@ public class Login extends HttpServlet {
 		// recuperer les données du formulaire
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
-		//verifier le pattern
+
+		// verifier le pattern
 		if (Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email) && Pattern
 				.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}.]:;',?/*~$^+=<>]).{8,20}$", password)) {
-			//si on clique sur le bouton
+			// si on clique sur le bouton
 			if (request.getParameter("se_connecter") != null) {
 
 				// preparer et instancier utilisateur
@@ -76,7 +76,8 @@ public class Login extends HttpServlet {
 				// instancier utilisateurDao
 				UtilisateurDao newUserDao = new UtilisateurDao();
 
-				// si l'utilisateur est trouvé (si la taille du tableau d'user retourné est différent de 0)
+				// si l'utilisateur est trouvé (si la taille du tableau d'user retourné est
+				// différent de 0)
 				if (newUserDao.findByConnexion(user).size() != 0) {
 
 					// Array vide
@@ -86,7 +87,7 @@ public class Login extends HttpServlet {
 					// creer token ou generer un array de byte, qu'on va ensuite tostring et encoder
 					// en base64
 					SecureRandom random = new SecureRandom();
-					byte bytes[] = new byte[64];
+					byte bytes[] = new byte[20];
 					random.nextBytes(bytes);
 					String token = Base64.getEncoder().encodeToString(bytes);
 
@@ -103,29 +104,21 @@ public class Login extends HttpServlet {
 					session.setAttribute("email", usertab.get(0).getEmail());
 					session.setAttribute("id_user", usertab.get(0).getId_utilisateur());
 					session.setAttribute("isconnected", 1);
+					session.setAttribute("token", token);
+
 					
-					/*recupere les cookie et boucle dessus pour trouver celui de l'appli 
-					et on ajoute celui ci en session*/
-					Cookie[] cookies = request.getCookies();
-
-					for (Cookie cookie : cookies) {
-
-						if (cookie.getName().equals("Parkme")) {
-							session.setAttribute("token", cookie.getValue());
-							response.sendRedirect(request.getContextPath()+"/Park");
-						}
-					}
+					// rediriger vers la page park
+					response.sendRedirect(request.getContextPath() + "/Park");
+				} else {
+					// si l'utilisateur n'est pas trouvé
+					request.setAttribute("erreur_connexion", 1);
+					doGet(request, response);
 				}
-
-			}else {
-				//si les logs sont incorrectes
-				request.setAttribute("erreur_connexion", 1) ;
-				doGet(request, response);
-			}
-		}else {
-			//si la verif pattern ne passe pas
-			request.setAttribute("erreur_connexion", 1) ;
-		doGet(request, response);
+			} // (fin)si on appuie sur le bouton
+		} else {
+			// si la verif pattern ne passe pas
+			request.setAttribute("erreur_connexion", 1);
+			doGet(request, response);
 		}
 	}
 
