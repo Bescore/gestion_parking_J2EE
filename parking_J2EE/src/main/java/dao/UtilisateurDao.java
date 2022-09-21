@@ -72,8 +72,8 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 		
 			ResultSet rs=sql.executeQuery();
 			if(rs.next()) {
-				//tester le hash avec checkpw
 				
+				//tester (si il correspond ou pas à ce qui est en BDD) le hash avec checkpw
 				if(encoder.checkpw(object.getPassword(),rs.getString("password"))) {
 					
 				// Créer un user
@@ -88,7 +88,6 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 				
 				//ajouter le user au tableau
 				userstab.add(user);
-				System.out.println("utilisateur trouvé (connexion)");
 				}
 			}
 			

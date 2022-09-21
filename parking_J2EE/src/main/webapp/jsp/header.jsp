@@ -98,13 +98,13 @@
 				</span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
-				<span class="nav-item bg-light p-2 border border-danger rounded-pill text-dark"> Bonjour , <c:out value="${prenom }"></c:out> 
+				<span class="nav-item bg-light p-2 border border-danger rounded-pill text-dark"><span class="mx-1"><i class="fa-solid fa-user-ninja"></i></span> <c:out value="${prenom }"></c:out> 
 				<c:out value="${nom }"></c:out>
 				</span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
 				<span class="nav-item"> <a class="btn-outline-sm"
-					href="<c:url value="/Login"></c:url>">Se déconnecter</a>
+					href="<c:url value="/Deconnexion"></c:url>">Se déconnecter</a>
 				</span>
 				</c:if>
 			</div>
