@@ -9,6 +9,7 @@ import modele.Database;
 import modele.Etage;
 import modele.Place_parking;
 import modele.Utilisateur;
+import modele.Voitures;
 
 public class Place_parkingDao implements Interface<Place_parking> {
 	Connection connect = new Database().getConnection();
@@ -74,4 +75,44 @@ public class Place_parkingDao implements Interface<Place_parking> {
 		return false;
 	}
 
+	
+	public boolean UpdateUtilisateur(int id_place_parking,int id_utilisateur) {
+		// TODO Auto-generated method stub
+		// on efface la place précédemment occupée par l'utilisateur ( un utilisateur ne peut occuper qu'une seule place à la fois)
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE place_parking SET utilisateur=? WHERE utilisateur=?");
+			
+			sql.setInt(1,0);
+			sql.setInt(2, id_utilisateur);
+		
+			sql.executeUpdate();
+			System.out.println("précédentes places effacée");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		
+		
+		
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE place_parking SET utilisateur=? WHERE id_place_parking=?");
+			
+			sql.setInt(1,id_utilisateur);
+			sql.setInt(2, id_place_parking);
+		
+			sql.executeUpdate();
+			System.out.println("update fait");
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return false;
+	}
+	
+	public boolean UpdatePrecedentePlace(Voitures object) {
+		// TODO Auto-generated method stub
+		
+		return false;
+	}
 }

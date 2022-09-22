@@ -6,6 +6,7 @@ public class Voitures {
 	private String marque;
 	private String modele;
 	private Utilisateur utilisateur;
+	private String date_heure;
 
 	public Voitures() {
 		super();
@@ -51,10 +52,19 @@ public class Voitures {
 		this.utilisateur = utilisateur;
 	}
 
+	public String getDate_heure() {
+		return date_heure;
+	}
+
+	public void setDate_heure(String date_heure) {
+		this.date_heure = date_heure;
+	}
+
 	@Override
 	public String toString() {
 		return "Voitures [Id_voitures=" + Id_voitures + ", marque=" + marque + ", modele=" + modele + ", utilisateur="
-				+ utilisateur + "]";
+				+ utilisateur + ", date_heure=" + date_heure + "]";
 	}
 
+	
 }

@@ -1,15 +1,19 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Place_parkingDao;
+import dao.VoituresDao;
+import modele.ParkingCookie;
+import modele.Utilisateur;
+import modele.Voitures;
 
 /**
  * Servlet implementation class Park
@@ -56,37 +60,56 @@ public class Park extends HttpServlet {
 		String marque =request.getParameter("marque");
 		//recuperer modele
 		String modele =request.getParameter("modele");
+		//recuperer le token en session
+		String token=String.valueOf(session.getAttribute("token"));
+		
+		
 		
 		if(request.getParameter("valider_choix_de_place")!=null && marque!=null&& !marque.isEmpty()&&
 				modele!=null&&!modele.isEmpty()&&request.getParameter("choix_place")!=null) {
-		
-		Cookie[] cookies = request.getCookies();
-
-		for (Cookie cookie : cookies) {
-			//si il trouve le cookie
-			if (cookie.getName().equals("Parkme")) {
-				//si le cookie est égale à celui contenu dans la session
-				if (session.getAttribute("token").equals(cookie.getValue())) {
+			
+			//on utilise la fonction qui va recuperer le cookie
+			String cookie=ParkingCookie.recupererCookie(request,token);
+			if(cookie.equals(token)) {
+				//recuperer id place de parking
+				int idPlaceParking=Integer.valueOf(request.getParameter("choix_place"));
+				//recuperer l'id utilisateur
+				int id_user=(int)(session.getAttribute("id_user"));
 				
-					//recuperer id place de parking
-					int idPlaceParking=Integer.valueOf(request.getParameter("choix_place"));
-					//recuperer la marque
-					
-					
-					System.out.println(idPlaceParking);
-					response.sendRedirect(request.getContextPath() + "/Compte");
-					
+				//instancier un utilisateur (pour l'y ajouter à Voitures)
+				Utilisateur newUser=new Utilisateur();
 				
-				//si le token dans le cookie ne correspond pas on redirige vers la connexion
-				}
-			//(fin)si il trouve le cookie
+				newUser.setId_utilisateur(id_user);
+				
+				
+				//Instancier un modele voiture
+				Voitures newVoiture=new Voitures();
+			
+				newVoiture.setMarque(marque);
+				newVoiture.setModele(modele);
+				newVoiture.setUtilisateur(newUser);
+				
+				//Instancier VoitureDao
+				VoituresDao newVoitureDao=new VoituresDao();
+				
+				newVoitureDao.Create(newVoiture);
+				
+				
+				//Instancier Place_parkingDao
+				Place_parkingDao newPlace=new Place_parkingDao();
+				
+				newPlace.UpdateUtilisateur(idPlaceParking, id_user);
+				
+				response.sendRedirect(request.getContextPath() + "/Compte");
+				
+				//si le token ne correspond pas on déconnecte l'utilisateur
+			}else {
+				response.sendRedirect(request.getContextPath() + "/Deconnexion");
 			}
-		//(fin)for
-		}
-		//si les champs sont vide ou empty
+			
+			//si le pattern ne correspond pas ou qu'il manque des informations dans les champs
 		}else {
 			doGet(request, response);
 		}
-			response.sendRedirect(request.getContextPath() + "/Login");//a modifier
 	}
 }

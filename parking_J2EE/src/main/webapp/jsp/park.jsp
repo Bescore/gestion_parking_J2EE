@@ -152,7 +152,13 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-
+<c:if test="${erreur_reconnexion==1}">
+<div class="container ">
+<div class="alert alert-danger text-center m-2">
+	<strong>Echec !</strong> La connexion est perdu vous devez vous reconnecter.
+</div>
+</div>
+</c:if>
 				<!-- Card -->
 				<div class="card">
 					<div class="card-body mx-auto">
@@ -183,6 +189,7 @@
 				</div>
 				<!-- end of card -->
 				<!-- end of card -->
+				
 			</div>
 			<!-- end of col -->
 		</div>
