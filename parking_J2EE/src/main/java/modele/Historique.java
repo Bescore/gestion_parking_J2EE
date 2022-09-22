@@ -5,6 +5,7 @@ public class Historique {
 	private String duree_occupation;
 	private String date_attribution;
 	private Utilisateur utilisateur;
+	private Place_parking place_parking;
 
 	public Historique() {
 
@@ -50,11 +51,22 @@ public class Historique {
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
+	
+	public Place_parking getPlace_parking() {
+		return place_parking;
+	}
+
+	public void setPlace_parking(Place_parking place_parking) {
+		this.place_parking = place_parking;
+	}
 
 	@Override
 	public String toString() {
-		return "historique [id_historique=" + id_historique + ", duree_occupation=" + duree_occupation
-				+ ", date_attribution=" + date_attribution + ", utilisateur=" + utilisateur + "]";
+		return "Historique [id_historique=" + id_historique + ", duree_occupation=" + duree_occupation
+				+ ", date_attribution=" + date_attribution + ", utilisateur=" + utilisateur + ", place_parking="
+				+ place_parking + "]";
 	}
+
+	
 
 }

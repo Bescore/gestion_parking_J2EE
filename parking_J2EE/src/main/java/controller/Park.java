@@ -1,15 +1,22 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HistoriqueDao;
 import dao.Place_parkingDao;
+import dao.VoituresDao;
+import modele.Historique;
+import modele.ParkingCookie;
+import modele.Place_parking;
+import modele.Utilisateur;
+import modele.Voitures;
 
 /**
  * Servlet implementation class Park
@@ -32,7 +39,7 @@ public class Park extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session = request.getSession();
+		
 		//Afficher les places de parking
 		
 		//instancier place-parkingDao
@@ -41,7 +48,6 @@ public class Park extends HttpServlet {
 		//faire un read et setAttribute du resultat
 		request.setAttribute("placeParkingTab", newPlaceDao.Read());
 		
-		System.out.println(session.getAttribute("token"));
 		
 		request.getRequestDispatcher("jsp/park.jsp").forward(request, response);
 	}
@@ -56,37 +62,71 @@ public class Park extends HttpServlet {
 		String marque =request.getParameter("marque");
 		//recuperer modele
 		String modele =request.getParameter("modele");
+		//recuperer le token en session
+		String token=String.valueOf(session.getAttribute("token"));
+		
+		
 		
 		if(request.getParameter("valider_choix_de_place")!=null && marque!=null&& !marque.isEmpty()&&
 				modele!=null&&!modele.isEmpty()&&request.getParameter("choix_place")!=null) {
-		
-		Cookie[] cookies = request.getCookies();
-
-		for (Cookie cookie : cookies) {
-			//si il trouve le cookie
-			if (cookie.getName().equals("Parkme")) {
-				//si le cookie est égale à celui contenu dans la session
-				if (session.getAttribute("token").equals(cookie.getValue())) {
+			
+			//on utilise la fonction qui va recuperer le cookie
+			String cookie=ParkingCookie.recupererCookie(request,token);
+			if(cookie.equals(token)) {
+				//recuperer id place de parking
+				int idPlaceParking=Integer.valueOf(request.getParameter("choix_place"));
+				//recuperer l'id utilisateur
+				int id_user=(int)(session.getAttribute("id_user"));
 				
-					//recuperer id place de parking
-					int idPlaceParking=Integer.valueOf(request.getParameter("choix_place"));
-					//recuperer la marque
-					
-					
-					System.out.println(idPlaceParking);
-					response.sendRedirect(request.getContextPath() + "/Compte");
-					
+				//instancier un utilisateur (pour l'y ajouter à Voitures)
+				Utilisateur newUser=new Utilisateur();
 				
-				//si le token dans le cookie ne correspond pas on redirige vers la connexion
-				}
-			//(fin)si il trouve le cookie
+				newUser.setId_utilisateur(id_user);
+				
+				
+				//Instancier un modele voiture
+				Voitures newVoiture=new Voitures();
+			
+				newVoiture.setMarque(marque);
+				newVoiture.setModele(modele);
+				newVoiture.setUtilisateur(newUser);
+				
+				//Instancier VoitureDao(pour realiser le creater)
+				VoituresDao newVoitureDao=new VoituresDao();
+				
+				newVoitureDao.Create(newVoiture);
+				
+				
+				//Instancier Place_parkingDao(pour l'update)
+				Place_parkingDao newPlaceDao=new Place_parkingDao();
+				
+				newPlaceDao.UpdateUtilisateur(idPlaceParking, id_user);
+				
+				//instancier place_parking
+				Place_parking newPlace=new Place_parking();
+				newPlace.setId_place_parking(idPlaceParking);
+				
+				//Ajouter la place à l'historique
+				Historique newHistorique=new Historique();
+				
+				newHistorique.setUtilisateur(newUser);
+				newHistorique.setPlace_parking(newPlace);
+				
+				//instancier historiqueDao(pour le create dans l'historique)
+				HistoriqueDao newHistoriqueDao=new HistoriqueDao();
+				
+				newHistoriqueDao.Create(newHistorique);
+				
+				response.sendRedirect(request.getContextPath() + "/Compte");
+				
+				//si le token ne correspond pas on déconnecte l'utilisateur
+			}else {
+				response.sendRedirect(request.getContextPath() + "/Deconnexion");
 			}
-		//(fin)for
-		}
-		//si les champs sont vide ou empty
+			
+			//si le pattern ne correspond pas ou qu'il manque des informations dans les champs
 		}else {
 			doGet(request, response);
 		}
-			response.sendRedirect(request.getContextPath() + "/Login");//a modifier
 	}
 }
