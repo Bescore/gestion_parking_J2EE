@@ -2,10 +2,14 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modele.Database;
+import modele.Etage;
 import modele.Historique;
+import modele.Place_parking;
+import modele.Utilisateur;
 
 public class HistoriqueDao implements Interface <Historique> {
 	Connection connect = new Database().getConnection();
@@ -63,5 +67,48 @@ public class HistoriqueDao implements Interface <Historique> {
 				e.getMessage();
 			}
 			return false;
+	}
+	
+	public ArrayList<Historique> findByIdUtilisateur() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Historique> historiqueTab = new ArrayList<Historique>();
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM historique INNER JOIN place_parking "
+					+ " ON historique.place_parking=place_parking.id_place_parking AND isActive_historique=1");
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				//instancier etage
+				Etage newEtage=new Etage();
+				newEtage.setNumero_etage(rs.getInt("etage"));
+				
+				//instancier place_parking
+				Place_parking newPlace=new Place_parking();
+				
+				newPlace.setNom_place(rs.getString("nom_place"));
+				newPlace.setEtage(newEtage);
+				/*mettre ici le reste des attributs parking si besoin*/
+				
+				
+				//instancier historique
+				Historique newHistorique=new Historique();
+				
+				newHistorique.setDate_attribution(rs.getString("date_attribution"));
+				newHistorique.setDuree_occupation(rs.getString("duree_occupation"));
+				newHistorique.setId_historique(rs.getInt("id_historique"));
+				newHistorique.setIsActive_Historique(rs.getInt("isActive_historique"));
+				newHistorique.setPlace_parking(newPlace);
+				
+
+				historiqueTab.add(newHistorique);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return historiqueTab;
 	}
 }
