@@ -46,4 +46,22 @@ public class HistoriqueDao implements Interface <Historique> {
 		return false;
 	}
 
+	public boolean UpdateLiberationPlace(Historique object) {
+		// TODO Auto-generated method stub
+			//cette requête va modifier la colonne duree_occupation, grâce à timediff qui calcule le temps entre 2 time ou date time
+			try {
+				PreparedStatement sql = connect.prepareStatement("Update historique SET "
+						+ "duree_occupation= (SELECT TIMEDIFF(now(),date_attribution)) WHERE utilisateur=? AND place_parking=? AND duree_occupation=0");
+				
+				sql.setInt(1, object.getUtilisateur().getId_utilisateur());
+				sql.setInt(2, object.getPlace_parking().getId_place_parking());
+				
+				sql.executeUpdate();
+				return true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getMessage();
+			}
+			return false;
+	}
 }

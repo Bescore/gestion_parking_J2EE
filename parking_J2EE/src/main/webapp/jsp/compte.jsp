@@ -155,7 +155,7 @@
 							<div class="card-body p-4">
 								<ul class="list-group list-group-flush rounded-3">
 									<li class="list-group-item text-center p-3 ">
-									 <c:if test="${!empty derniereVoiture }">
+									 <c:if test="${!empty informationsPlaceParking }">
 											 <p class="mb-0 py-2">Garé depuis le</p>
 												<p class="mb-0  fw-bold">
 													<c:out
