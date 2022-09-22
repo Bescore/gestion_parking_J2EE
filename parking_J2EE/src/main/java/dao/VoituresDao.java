@@ -2,9 +2,11 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modele.Database;
+import modele.Utilisateur;
 import modele.Voitures;
 
 public class VoituresDao implements Interface <Voitures> {
@@ -47,5 +49,36 @@ public class VoituresDao implements Interface <Voitures> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	//utilisé pour le servlet compte
+	public ArrayList<Voitures>findByIdUtilisateur(int id_user) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Voitures> voitureTab= new ArrayList<Voitures>();
+		try {
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM voitures where utilisateur=?");
+			
+			sql.setInt(1, id_user);
+			
+			ResultSet rs =sql.executeQuery();
+			
+			while(rs.next()) {
+				//creer voitures
+				Voitures newVoiture=new Voitures();
+				//lui attribuer les valeurs de colonnes bdd
+				newVoiture.setId_voitures(rs.getInt("id_voitures"));
+				newVoiture.setDate_heure(rs.getString("date_heure"));
+				newVoiture.setMarque(rs.getString("marque"));
+				newVoiture.setModele(rs.getString("modele"));
+				//setUtilisateur non necessaire ici
+				
+				voitureTab.add(newVoiture);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return voitureTab;
+	}
 }

@@ -75,7 +75,7 @@ public class Place_parkingDao implements Interface<Place_parking> {
 		return false;
 	}
 
-	
+	//utilisé dans Park pour choisir une place de parking, utilisé dans Compte pour liberé la place de parking
 	public boolean UpdateUtilisateur(int id_place_parking,int id_utilisateur) {
 		// TODO Auto-generated method stub
 		// on efface la place précédemment occupée par l'utilisateur ( un utilisateur ne peut occuper qu'une seule place à la fois)
@@ -91,8 +91,6 @@ public class Place_parkingDao implements Interface<Place_parking> {
 			// TODO: handle exception
 			e.getMessage();
 		}
-		
-		
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("UPDATE place_parking SET utilisateur=? WHERE id_place_parking=?");
@@ -110,9 +108,49 @@ public class Place_parkingDao implements Interface<Place_parking> {
 		return false;
 	}
 	
-	public boolean UpdatePrecedentePlace(Voitures object) {
+	public Place_parking finbyIdUtilisateur(int id_user) {
 		// TODO Auto-generated method stub
 		
-		return false;
+		
+		try {
+			//inner join avec table utilisateur/place_parking/etage
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM place_parking INNER JOIN utilisateur INNER JOIN etage"
+					+ " ON place_parking.utilisateur=utilisateur.id_utilisateur AND place_parking.etage=etage.id_etage AND place_parking.utilisateur=?");
+			
+			sql.setInt(1, id_user);
+			ResultSet rs = sql.executeQuery();
+			
+			if(rs.next()) {
+				
+				//recuperer l'id utilisateur (on ne sait jamais)
+				Utilisateur newUser=new Utilisateur();
+				
+				newUser.setId_utilisateur(rs.getInt("utilisateur"));
+				
+				//creer Etage
+				Etage newEtage=new Etage();
+				
+				newEtage.setId_etage(rs.getInt("id_etage"));
+				newEtage.setNumero_etage(rs.getInt("numero_etage"));
+				
+				//creer une place de parking
+				Place_parking newPlace_parking = new Place_parking();
+				
+				newPlace_parking.setId_place_parking(rs.getInt("id_place_parking"));
+				newPlace_parking.setImage_url(rs.getString("image_url"));
+				newPlace_parking.setIsActive_place_parking(rs.getInt("isActive_place_parking"));
+				newPlace_parking.setNom_place(rs.getString("nom_place"));
+				newPlace_parking.setEtage(newEtage);
+				newPlace_parking.setUtilisateur(newUser);
+
+				return newPlace_parking;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return null;
+		
 	}
 }

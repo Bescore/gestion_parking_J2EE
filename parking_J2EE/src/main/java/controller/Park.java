@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HistoriqueDao;
 import dao.Place_parkingDao;
 import dao.VoituresDao;
+import modele.Historique;
 import modele.ParkingCookie;
+import modele.Place_parking;
 import modele.Utilisateur;
 import modele.Voitures;
 
@@ -36,7 +39,7 @@ public class Park extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session = request.getSession();
+		
 		//Afficher les places de parking
 		
 		//instancier place-parkingDao
@@ -45,7 +48,6 @@ public class Park extends HttpServlet {
 		//faire un read et setAttribute du resultat
 		request.setAttribute("placeParkingTab", newPlaceDao.Read());
 		
-		System.out.println(session.getAttribute("token"));
 		
 		request.getRequestDispatcher("jsp/park.jsp").forward(request, response);
 	}
@@ -89,16 +91,31 @@ public class Park extends HttpServlet {
 				newVoiture.setModele(modele);
 				newVoiture.setUtilisateur(newUser);
 				
-				//Instancier VoitureDao
+				//Instancier VoitureDao(pour realiser le creater)
 				VoituresDao newVoitureDao=new VoituresDao();
 				
 				newVoitureDao.Create(newVoiture);
 				
 				
-				//Instancier Place_parkingDao
-				Place_parkingDao newPlace=new Place_parkingDao();
+				//Instancier Place_parkingDao(pour l'update)
+				Place_parkingDao newPlaceDao=new Place_parkingDao();
 				
-				newPlace.UpdateUtilisateur(idPlaceParking, id_user);
+				newPlaceDao.UpdateUtilisateur(idPlaceParking, id_user);
+				
+				//instancier place_parking
+				Place_parking newPlace=new Place_parking();
+				newPlace.setId_place_parking(idPlaceParking);
+				
+				//Ajouter la place à l'historique
+				Historique newHistorique=new Historique();
+				
+				newHistorique.setUtilisateur(newUser);
+				newHistorique.setPlace_parking(newPlace);
+				
+				//instancier historiqueDao(pour le create dans l'historique)
+				HistoriqueDao newHistoriqueDao=new HistoriqueDao();
+				
+				newHistoriqueDao.Create(newHistorique);
 				
 				response.sendRedirect(request.getContextPath() + "/Compte");
 				

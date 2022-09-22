@@ -34,7 +34,6 @@
 
 <!-- Details Modal -->
 
-
 <form method="post">
 	<div id="staticBackdrop" class="modal fade" tabindex="-1"
 		aria-hidden="true">
@@ -75,8 +74,6 @@
 							</c:forEach>
 						</div>
 
-
-
 					</div>
 
 					<!-- end of col -->
@@ -114,7 +111,8 @@
 							</div>
 						</c:if>
 						<c:if test="${!empty isconnected }">
-							<button name="valider_choix_de_place" type="submit" class="btn-solid-reg">Valider</button>
+							<button name="valider_choix_de_place" type="submit"
+								class="btn-solid-reg">Valider</button>
 						</c:if>
 						<c:if test="${empty isconnected }">
 							<a id="modalCtaBtn" href="<%request.getContextPath();%>Login"
@@ -152,13 +150,14 @@
 		<div class="row">
 			<div class="col-lg-12">
 
-<c:if test="${erreur_reconnexion==1}">
-<div class="container ">
-<div class="alert alert-danger text-center m-2">
-	<strong>Echec !</strong> La connexion est perdu vous devez vous reconnecter.
-</div>
-</div>
-</c:if>
+				<c:if test="${erreur_reconnexion==1}">
+					<div class="container ">
+						<div class="alert alert-danger text-center m-2">
+							<strong>Echec !</strong> La connexion est perdu vous devez vous
+							reconnecter.
+						</div>
+					</div>
+				</c:if>
 				<!-- Card -->
 				<div class="card">
 					<div class="card-body mx-auto">
@@ -189,7 +188,7 @@
 				</div>
 				<!-- end of card -->
 				<!-- end of card -->
-				
+
 			</div>
 			<!-- end of col -->
 		</div>

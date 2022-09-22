@@ -33,16 +33,19 @@
 <!-- Bootstrap framework -->
 <script defer src="js/swiper.min.js"></script>
 <!-- Swiper for image and text sliders -->
-<script defer  src="js/purecounter.min.js"></script>
+<script defer src="js/purecounter.min.js"></script>
 <!-- Purecounter counter for statistics numbers -->
-<script defer  src="js/replaceme.min.js"></script>
+<script defer src="js/replaceme.min.js"></script>
 <!-- ReplaceMe for rotating text -->
-<script defer  src="js/scripts.js"></script>
+<script defer src="js/scripts.js"></script>
 <!-- Custom scripts -->
 
 
 <!-- font_awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Styles -->
 <link
@@ -53,14 +56,16 @@
 <link href="css/styles.css" rel="stylesheet">
 
 <!-- Jquery -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+	integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+	crossorigin="anonymous"></script>
 
 <!-- Favicon  -->
 <link rel="icon" href="images/favicon.png">
 
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
-	
+
 	<!-- Navigation -->
 	<nav id="navbarExample"
 		class="navbar navbar-expand-lg fixed-top navbar-light"
@@ -68,8 +73,9 @@
 		<div class="container">
 
 			<!-- Image Logo -->
-			<a class="navbar-brand logo-image" href="<c:url value="/home"></c:url>"><img
-				 style="width:100%" src="images/parkfast_logo_2.png" alt="parkfast"></a>
+			<a class="navbar-brand logo-image"
+				href="<c:url value="/home"></c:url>"><img style="width: 100%"
+				src="images/parkfast_logo_2.png" alt="parkfast"></a>
 
 			<!-- Text Logo - Use this if you don't have a graphic logo -->
 			<!-- <a class="navbar-brand logo-text" href="index.html">Ioniq</a> -->
@@ -84,30 +90,31 @@
 				<ul class="navbar-nav ms-auto navbar-nav-scroll">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="<c:url value="/home#"></c:url>">Accueil</a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value="/home#features"></c:url>">Présentation</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value="/Park"></c:url>">Trouver une place</a>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value="/home#features"></c:url>">Présentation</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value="/Park"></c:url>">Trouver une place</a></li>
 					<c:if test="${!empty isconnected }">
-					<li class="nav-item "><a
-						class="nav-link " href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon compte</a>
-						</li>
-						</c:if>
+						<li class="nav-item "><a class="nav-link "
+							href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon
+								compte</a></li>
+					</c:if>
 				</ul>
 				<c:if test="${empty isconnected }">
-				<span class="nav-item"> <a class="btn-outline-sm"
-					href="<c:url value="/Login"></c:url>">Se connecter</a>
-				</span>
+					<span class="nav-item"> <a class="btn-outline-sm"
+						href="<c:url value="/Login"></c:url>">Se connecter</a>
+					</span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
-				<span class="nav-item bg-light p-2 border border-danger rounded-pill text-dark"><span class="mx-1"><i class="fa-solid fa-user-ninja"></i></span> <c:out value="${prenom }"></c:out> 
-				<c:out value="${nom }"></c:out>
-				</span>
+					<span
+						class="nav-item bg-light p-2 border border-danger rounded-pill text-dark"><span
+						class="mx-1"><i class="fa-solid fa-user-ninja fa-bounce"></i></span> <c:out
+							value="${prenom } ${nom}"></c:out></span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
-				<span class="nav-item"> <a class="btn-outline-sm"
-					href="<c:url value="/Deconnexion"></c:url>">Se déconnecter</a>
-				</span>
+					<span class="nav-item"> <a class="btn-outline-sm"
+						href="<c:url value="/Deconnexion"></c:url>">Se déconnecter</a>
+					</span>
 				</c:if>
 			</div>
 			<!-- end of navbar-collapse -->
@@ -116,7 +123,3 @@
 	</nav>
 	<!-- end of navbar -->
 	<!-- end of navigation -->
-	
-	
-	
-	
