@@ -8,9 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HistoriqueDao;
 import dao.Place_parkingDao;
 import dao.VoituresDao;
+import modele.Historique;
 import modele.ParkingCookie;
+import modele.Place_parking;
+import modele.Utilisateur;
 
 /**
  * Servlet implementation class Compte
@@ -37,13 +41,13 @@ public class Compte extends HttpServlet {
 		HttpSession session = request.getSession();
 		//recuperer le token en session
 		String token=String.valueOf(session.getAttribute("token"));
-		//recuperer l'id utilisateur
-		int id_user=(int)(session.getAttribute("id_user"));
+		
 		
 		//on utilise la fonction qui va recuperer le cookie
 		String cookie=ParkingCookie.recupererCookie(request,token);
 		if(cookie.equals(token)) {
-		
+		//recuperer l'id utilisateur
+		int id_user=(int)(session.getAttribute("id_user"));
 		//récupérer les informations de place, etage etc.. place attribuée
 		
 		//instancier Place_parkingDao et setAttribute
@@ -87,6 +91,7 @@ public class Compte extends HttpServlet {
 				String token=String.valueOf(session.getAttribute("token"));
 				//donner la valeur 0 à l'utilisateur (necessaire pour liberer la place)
 				int id_user=0;
+				int realId_user=(int)session.getAttribute("id_user");
 				
 				//on utilise la fonction qui va recuperer le cookie
 				String cookie=ParkingCookie.recupererCookie(request,token);
@@ -100,6 +105,25 @@ public class Compte extends HttpServlet {
 						//instancier Place_parkingDao et libérer la place de parking
 						Place_parkingDao newPlace=new Place_parkingDao();
 						newPlace.UpdateUtilisateur( idPlaceParking,id_user);
+						
+						//Mettre le timeDiff(différence de temps entre l'instant T et la date d'attribution ) dans l'historique
+						Historique newHistorique=new Historique();
+						
+						//instancier utilisateur (necessaire pour remplir historique)
+						Utilisateur newUser=new Utilisateur();
+						newUser.setId_utilisateur(realId_user);
+						//instancier parking (necessaire pour remplir historique)
+						Place_parking newParking=new Place_parking();
+						newParking.setId_place_parking(idPlaceParking);
+						
+						//
+						newHistorique.setPlace_parking(newParking);
+						newHistorique.setUtilisateur(newUser);
+						
+						//instancier HistoriqueDao et faire l'update
+						HistoriqueDao newHistoriqueDao=new HistoriqueDao();
+						//declancher l'update
+						newHistoriqueDao.UpdateLiberationPlace(newHistorique);
 						
 					}
 					//si tout se passe bien

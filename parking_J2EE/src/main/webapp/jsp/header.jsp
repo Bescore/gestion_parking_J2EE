@@ -99,7 +99,7 @@
 							href="<c:url value="/Compte"></c:url>" id="dropdown01">Mon
 								compte</a></li>
 					</c:if>
-				</ul>
+				
 				<c:if test="${empty isconnected }">
 					<span class="nav-item"> <a class="btn-outline-sm"
 						href="<c:url value="/Login"></c:url>">Se connecter</a>
@@ -107,15 +107,16 @@
 				</c:if>
 				<c:if test="${!empty isconnected }">
 					<span
-						class="nav-item bg-light p-2 border border-danger rounded-pill text-dark"><span
+						class="nav-item bg-light p-2 border border-danger rounded-pill text-dark text-center" ><span
 						class="mx-1"><i class="fa-solid fa-user-ninja fa-bounce"></i></span> <c:out
 							value="${prenom } ${nom}"></c:out></span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
-					<span class="nav-item"> <a class="btn-outline-sm"
+					<li class="nav-item"> <a class="btn-outline-sm"
 						href="<c:url value="/Deconnexion"></c:url>">Se déconnecter</a>
 					</span>
 				</c:if>
+				</ul>
 			</div>
 			<!-- end of navbar-collapse -->
 		</div>

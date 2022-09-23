@@ -110,7 +110,7 @@
 							<div class="card mb-4 mb-lg-0">
 								<div class="card-body p-4">
 									<ul class="list-group list-group-flush rounded-3">
-										<li class="list-group-item text-center p-3 ">
+										<li class="list-group-item text-center p-2 ">
 
 											<p class="mb-0 py-5 ">Aucune place de parking attribuée</p>
 										</li>
@@ -155,8 +155,8 @@
 							<div class="card-body p-4">
 								<ul class="list-group list-group-flush rounded-3">
 									<li class="list-group-item text-center p-3 ">
-									 <c:if test="${!empty derniereVoiture }">
-											 <p class="mb-0 py-2">Garé depuis le</p>
+									 <c:if test="${!empty informationsPlaceParking }">
+											 <p class="mb-0 py-1">Garé depuis le</p>
 												<p class="mb-0  fw-bold">
 													<c:out
 														value="${derniereVoiture.date_heure }"></c:out>
@@ -166,12 +166,12 @@
 									<li class="list-group-item text-center p-2 ">
 										<a href="<c:url value="/Historique"></c:url>"  class="mb-0 py-4 ">Historique</a>
 									</li>
-									<li class="list-group-item text-center p-2 ">
-										<a href="<c:url value="/Reglement"></c:url>"  class="mb-0 py-4 ">Règlement</a>
+									<li class="list-group-item text-center p-1 ">
+										<a href="<c:url value="#"></c:url>"  class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1 fa-beat" style="--fa-beat-scale: 2.0;"></i> vous devez libérer la place avant de choisir un autre emplacmeent</a>
 									</li>
 									<c:if test="${ !empty informationsPlaceParking}">
-									<li class="list-group-item text-center p-3 ">
-										<button type="submit" name="libererPlace" value="${informationsPlaceParking.id_place_parking }" class="mb-0 text-decoration-none btn btn-outline-danger rounded-4"><i class="fa-solid fa-cog fa-spin mx-1"></i>Libérer la place de parking</button>
+									<li class="list-group-item text-center p-2 ">
+										<button type="submit" name="libererPlace" value="${informationsPlaceParking.id_place_parking }" class="mb-0 text-decoration-none btn btn-outline-danger rounded-4"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Libérer la place de parking</button>
 									</li>
 									</c:if>
 								</ul>
