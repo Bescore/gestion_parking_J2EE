@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +48,42 @@ public class Historique extends HttpServlet {
 			//instancier historiqueDao
 			HistoriqueDao newHistoriqueDao=new HistoriqueDao();
 			//declencher le findby
-			request.setAttribute("historique",newHistoriqueDao.findByIdUtilisateur());
+			request.setAttribute("historique",newHistoriqueDao.findByIdUtilisateur(id_user));
+			
+			
+			//Calculer et Afficher la somme dû grâce à une boucle
+			
+			//initialiser une variable
+			double total=0;
+			for (modele.Historique element : newHistoriqueDao.findByIdUtilisateur(id_user)) {
+				
+				// la fonction split va mettre le format 00:00:00 sous forme de tableau en utilisant ":" comme séparateur
+				// de ce fait on recupere [00,00,00], on recupere les valeurs avec leur index de tableau.. classique
+				//ensuite on en fait ce qu'on veut ici je parse les valeurs en int
+				int heures= Integer.valueOf(element.getDuree_occupation().split(":")[0]) ;
+				int minutes=Integer.valueOf(element.getDuree_occupation().split(":")[1]) ;
+				int	secondes=Integer.valueOf(element.getDuree_occupation().split(":")[2]) ;
+				
+				
+				//Calcule de toute les valeurs en seconde
+				//1h= 3600secondes,1minutes= 60secondes,1secondes= 1secondes
+				int heuresEnSeconde=heures*3600;
+				int minutesESeconde=minutes*60;
+				int	secondeEnSecondes=secondes;
+				
+				
+				//addition, 0.6 centimes la minute = 0.001 la secondes
+				double addition=(heuresEnSeconde+minutesESeconde+secondeEnSecondes)*0.001;
+				
+				//on arrondie la valeur et la passe à la variable total
+				total+=addition;
+			}
+			
+			//recuperer total et l'arrondir à 2 décimale, puis l'envoyer au jsp
+			request.setAttribute("sommeAPayer",  Math.round(total*100.0)/100.0);       
+			
+			//mettre la somme en session
+			session.setAttribute("Apayer", Math.round(total*100.0)/100.0);
 			
 			request.getRequestDispatcher("jsp/historique.jsp").forward(request, response);
 			//si le cookie n'est pas trouvé

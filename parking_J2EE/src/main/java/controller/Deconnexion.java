@@ -40,6 +40,7 @@ public class Deconnexion extends HttpServlet {
 		session.setAttribute("isconnected", null);
 		session.setAttribute("id_user", null);
 		session.setAttribute("token", null);
+		session.setAttribute("Apayer", null);
 
 		response.sendRedirect(request.getContextPath() + "/Login");
 	}

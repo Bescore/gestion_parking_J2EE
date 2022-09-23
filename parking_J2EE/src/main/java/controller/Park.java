@@ -78,6 +78,12 @@ public class Park extends HttpServlet {
 				//recuperer l'id utilisateur
 				int id_user=(int)(session.getAttribute("id_user"));
 				
+				/*verifie si l'utilisateur est détenteur d'une place  si non il execute le code, 
+				si oui il redirige vers la page mon compte*/
+				//Instancier Place_parkingDao(pour l'update)
+				Place_parkingDao newPlaceDao=new Place_parkingDao();
+				
+				if(newPlaceDao.finbyIdUtilisateur(id_user)==null) {
 				//instancier un utilisateur (pour l'y ajouter à Voitures)
 				Utilisateur newUser=new Utilisateur();
 				
@@ -96,10 +102,7 @@ public class Park extends HttpServlet {
 				
 				newVoitureDao.Create(newVoiture);
 				
-				
-				//Instancier Place_parkingDao(pour l'update)
-				Place_parkingDao newPlaceDao=new Place_parkingDao();
-				
+				//executer une autre méthode de parkingdao
 				newPlaceDao.UpdateUtilisateur(idPlaceParking, id_user);
 				
 				//instancier place_parking
@@ -116,9 +119,8 @@ public class Park extends HttpServlet {
 				HistoriqueDao newHistoriqueDao=new HistoriqueDao();
 				
 				newHistoriqueDao.Create(newHistorique);
-				
+				}
 				response.sendRedirect(request.getContextPath() + "/Compte");
-				
 				//si le token ne correspond pas on déconnecte l'utilisateur
 			}else {
 				response.sendRedirect(request.getContextPath() + "/Deconnexion");

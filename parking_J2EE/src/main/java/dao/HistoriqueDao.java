@@ -69,14 +69,16 @@ public class HistoriqueDao implements Interface <Historique> {
 			return false;
 	}
 	
-	public ArrayList<Historique> findByIdUtilisateur() {
+	public ArrayList<Historique> findByIdUtilisateur(int id_user) {
 		// TODO Auto-generated method stub
 		
 		ArrayList<Historique> historiqueTab = new ArrayList<Historique>();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM historique INNER JOIN place_parking "
-					+ " ON historique.place_parking=place_parking.id_place_parking AND isActive_historique=1");
+					+ " ON historique.place_parking=place_parking.id_place_parking AND isActive_historique=1 AND historique.utilisateur=?");
+			
+			sql.setInt(1, id_user);
 			ResultSet rs = sql.executeQuery();
 			
 			while(rs.next()) {

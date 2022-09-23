@@ -124,7 +124,7 @@ public class Compte extends HttpServlet {
 						HistoriqueDao newHistoriqueDao=new HistoriqueDao();
 						//declancher l'update
 						newHistoriqueDao.UpdateLiberationPlace(newHistorique);
-							
+						
 					}
 					//si tout se passe bien
 					doGet(request, response);
