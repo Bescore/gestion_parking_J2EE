@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 <c:import url="/Header"></c:import>
 <script defer src="js/paypal.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=ASP3-moMgYqpFPti_AcT6iCXrmTh9KoVTrBJXghlZ7GZ4H8LR8iMb3EjdYbF40lUjX5lAf27aFkhTbii&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=ASmAjCJ8vp4dGasQgcAOTX4DhGT-9Ip-bKb3UE1u7r08dM6ZVMZ_-Tlkrxi1OgHiRGx87VevAkZO0TRZ&currency=USD"></script>
 <!-- Header -->
 <header class="ex-header">
 	<div class="container">
@@ -21,8 +21,14 @@
 
 <section style="background-color: #eee;">
 	<div class="container py-5">
-
-		<form method="post">
+<c:if test="${paymentEffectuer==1}">
+<div class="container ">
+<div class="alert alert-success text-center  p-0">
+	<strong>Succès !</strong> Le paiement à été pris en compte.
+</div>
+</div>
+</c:if>
+		<form id="myForm" method="post">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="card mb-4">
@@ -65,12 +71,21 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="card mb-4">
+					<c:if test="${sommeApayer!=0 }">
 						<div class="card-body overflow-auto" style="height:250px">
 							<!-- mettre paiment ici ici -->
 							<p id="wannaPay" class="card-body text-center py-0">Payer en quelques cliques</p>
 							<p class="card-body text-center py-0 fw-bold fs-2"><c:out value="${sommeApayer } €"></c:out></p>
-							<div class="d-flex justify-content-center" ><div id="paypal-button-container"></div></div>
+							<div class="mx-auto" style="width:250px;" ><div id="paypal-button-container"></div></div>
 						</div>
+						</c:if>
+						<c:if test="${ sommeApayer<=0 }">
+						<div class="card-body overflow-auto d-flex justify-content-center align-items-center" style="height:250px">
+							<!-- mettre paiment ici ici -->
+							<p  class="card-body text-center fw-bold fs-3">Vous n'avez rien à payer</p>
+							
+						</div>
+						</c:if>
 					</div>
 
 					<div class="row">
@@ -84,7 +99,7 @@
 											</li>
 											<li class="list-group-item text-center p-3 ">
 
-												<p class="mb-0 fw-bold fs-3 py-1"><i class="fa-brands text-success fa-cc-paypal mx-1 fa-flip fa-1x" style="--fa-animation-duration: 2s;"></i>
+												<p class="mb-0 fw-bold fs-3 py-1"><i class="fa-brands text-success fa-cc-paypal mx-1 fa-flip fa-1x" style="--fa-animation-duration: 3s;"></i><i class="fa-solid fa-credit-card text-success fa-beat mx-3" style="--fa-animation-duration: 3s;"></i>
 											</li>
 										</ul>
 									</div>
@@ -111,6 +126,7 @@
 					</div>
 				</div>
 			</div>
+			<input hidden name="validPayment" value="valid" class="form-control-submit-button">
 		</form>
 	</div>
 </section>

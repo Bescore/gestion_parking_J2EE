@@ -17,7 +17,7 @@
 
 <c:if test="${erreur_connexion==1}">
 <div class="container ">
-<div class="alert alert-danger text-center m-2">
+<div class="alert alert-danger text-center my-2 p-0">
 	<strong>Echec !</strong> données incorrecte ou email inconnu.
 </div>
 </div>

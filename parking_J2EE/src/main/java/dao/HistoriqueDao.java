@@ -113,4 +113,25 @@ public class HistoriqueDao implements Interface <Historique> {
 		}
 		return historiqueTab;
 	}
+	
+	
+	//update pour changer le statut (isActive) de l'historique utilisateur (après paiment)
+	public boolean UpdateisActiveHistorique(Historique object) {
+		// TODO Auto-generated method stub
+			//cette requête va modifier la colonne duree_occupation, grâce à timediff qui calcule le temps entre 2 time ou date time
+			try {
+				PreparedStatement sql = connect.prepareStatement("Update historique SET isActive_historique=? WHERE utilisateur=?");
+				
+				sql.setInt(1, object.getIsActive_Historique());
+				sql.setInt(2, object.getUtilisateur().getId_utilisateur());
+				
+				
+				sql.executeUpdate();
+				return true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getMessage();
+			}
+			return false;
+	}
 }

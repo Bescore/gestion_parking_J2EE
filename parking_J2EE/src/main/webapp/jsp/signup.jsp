@@ -23,14 +23,14 @@
 
 <c:if test="${inscrit==1}">
 <div class="container" id="inscrit">
-<div class="alert alert-success text-center m-2">
+<div class="alert alert-success text-center my-2 p-0">
 	<strong>Success!</strong> Vous êtes inscrit
 </div>
 </div>
 </c:if>
 <c:if test="${erreur_inscription==1}">
 <div class="container ">
-<div class="alert alert-danger text-center m-2">
+<div class="alert alert-danger text-center my-2 p-0">
 	<strong>Echec !</strong> données incorrecte ou email existant.
 </div>
 </div>

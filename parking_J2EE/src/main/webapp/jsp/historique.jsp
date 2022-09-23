@@ -55,7 +55,7 @@
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
 										<p class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute sommes dû et non réglé vous expose à des poursuites judicdiaires </p>
-										<p class="mb-0 py-2"><i class="fa-solid text-success fa-euro-sign mx-1"></i><span class="fs-7">(0.6 centimes la minutes)</span></p>
+										<p class="mb-0 py-2"><i class="fa-solid text-success fa-euro-sign mx-1"></i><span class="fs-7">0.6 centimes la minutes</span></p>
 									</li>
 							</ul>
 						</div>

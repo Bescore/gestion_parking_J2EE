@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HistoriqueDao;
 import modele.ParkingCookie;
+import modele.Utilisateur;
+import modele.Historique;
 
 /**
  * Servlet implementation class Paiement
@@ -42,8 +46,6 @@ public class Paiement extends HttpServlet {
 		//recuperer la sommedû
 		request.setAttribute("sommeApayer", session.getAttribute("Apayer"));
 		
-		
-		
 		request.getRequestDispatcher("jsp/paiement.jsp").forward(request, response);
 				}else {
 					response.sendRedirect(request.getContextPath() + "/Deconnexion");
@@ -55,7 +57,31 @@ public class Paiement extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
+		//ce submit sera déclanché en js  si  succès du payment paypal
+		//recuperer id_user
+		int id_user= (int)session.getAttribute("id_user");
+		if(request.getParameter("validPayment")!=null) {
+		//creer un utilisateur (pour y mettre dans l'historique)
+		Utilisateur newUser= new Utilisateur();
+		
+		newUser.setId_utilisateur(id_user);
+		
+		Historique newHistorique=new Historique();
+		
+		newHistorique.setIsActive_Historique(0);
+		newHistorique.setUtilisateur(newUser);
+		
+		HistoriqueDao newHistoriqueDao= new HistoriqueDao();
+		
+		newHistoriqueDao.UpdateisActiveHistorique(newHistorique);
+		//enlever le prix à payer
+		session.setAttribute("Apayer",0.0);
+		request.setAttribute("paymentEffectuer", 1);
+		}
+		
 		doGet(request, response);
+		
 	}
 
 }
