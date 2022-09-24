@@ -40,9 +40,11 @@ public class Park extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
+	
 		
-		//id_user
-		int id_user=(int)(session.getAttribute("id_user"));
+		
+		
+		
 		//Afficher les places de parking
 		
 		//instancier place-parkingDao
@@ -51,6 +53,11 @@ public class Park extends HttpServlet {
 		//faire un read et setAttribute du resultat
 		request.setAttribute("placeParkingTab", newPlaceDao.Read());
 		
+		if (session.getAttribute("id_user")!=null) {
+		//id_user
+		int id_user=(int)(session.getAttribute("id_user"));	
+			
+			
 		//Afficher les voitures dans le select
 		//instancier un utilisateur (pour l'y ajouter à Voitures)
 		Utilisateur newUser=new Utilisateur();
@@ -64,7 +71,7 @@ public class Park extends HttpServlet {
 		//recuperer list voiture
 		request.setAttribute("listVoitures", newVoiture.findByIdUtilisateur(id_user));
 		
-		
+		}
 		
 		request.getRequestDispatcher("jsp/park.jsp").forward(request, response);
 	}
