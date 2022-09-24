@@ -351,8 +351,9 @@ a:hover {
 
 .navbar .logo-image img {
     width: 132px;
-	height: 30px;
+	height: 35px;
 }
+/**jm à changer la valeur juste au dessus de 30px à 35**/
 
 .navbar .logo-text {
 	color: #272556;

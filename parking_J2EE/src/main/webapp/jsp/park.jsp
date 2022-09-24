@@ -19,7 +19,7 @@
 			<div class="col-lg-6 col-xl-7">
 				<div class="image-container">
 					<img class="img-fluid" src="images/park_on_top.png"
-						alt="alternative" />
+						alt="parking" />
 				</div>
 				<!-- end of image-container -->
 			</div>
@@ -98,17 +98,13 @@
 						</ul>
 
 						<c:if test="${!empty isconnected }">
-							<h4>Marque et modèle du véhicule</h4>
-							<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">Marque</label>
-								<input type="text" class="form-control" name="marque"
-									placeholder="Citroën, Renault, Toyota">
-							</div>
-							<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">Modèle</label>
-								<input type="text" class="form-control" name="modele"
-									placeholder="C4, scenic, Yaris">
-							</div>
+							<h4> Véhicules</h4>
+							<select name="vehicule" class="form-select my-3" aria-label="Default select example">
+										<c:forEach items="${listVoitures}" var="element">
+											<option value="${element.id_voitures }"><c:out
+													value="${element.marque } ${element.modele }"></c:out></option>
+										</c:forEach>
+									</select>
 						</c:if>
 						<c:if test="${!empty isconnected }">
 							<button name="valider_choix_de_place" type="submit"

@@ -104,11 +104,54 @@
 			<!-- end of col -->
 		</div>
 		<!-- end of row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="h2-heading">
+					*Nos offres sont soumises à conditions <span>24h/24h et 7/7 jrs</span>
+				</p>
+			</div>
+			<!-- end of col -->
+		</div>
 	</div>
 	<!-- end of container -->
 </div>
 <!-- end of cards-1 -->
 <!-- end of services -->
+	<!-- Invitation -->
+		<div class="basic-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h4>
+							Avec Parkfast, vous pouvez garer votre voiture rapidement et facilement, quelle que soit <span> la température !</span>
+						</h4>
+						<a class="btn-outline-lg page-scroll" href="<c:url value="/Login"></c:url>"
+							>S'inscrire</a
+						>
+					</div>
+					<!-- end of col -->
+				</div>
+				<!-- end of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+<!-- Features -->
+<div id="features" class="cards-1">
+	<div class="container">
+		
+		<!-- end of row -->
+		<div class="container d-flex justify-content-center my-5">
+<iframe  seamless width="888" height="336" frameborder="0" src="https://www.infoclimat.fr/public-api/mixed/iframeSLIDE?_ll=48.85341,2.3488&_inc=WyJQYXJpcyIsIjQyIiwiMjk4ODUwNyIsIkZSIl0=&_auth=AxkHEAJ8ByVVeFBnVyEAKVE5UmdcKlRzA38GZQ5rB3pTOFY3UjJQNgNtWyYGKVdhUH0FZgswATFUP1YuAHJXNgNpB2sCaQdgVTpQNVd4ACtRf1IzXHxUcwNpBmMOfQdsUzlWLFIwUDQDZVsnBjRXYlBlBXoLKwE4VDFWNwBpVzQDYgdqAmQHZ1U9UC1XeAAyUWFSMFw1VG0DYwZkDmQHZFM3VjVSMVA7A25bJwYyV2NQawViCzwBO1QyVjgAclcrAxkHEAJ8ByVVeFBnVyEAKVE3UmxcNw%3D%3D&_c=61ae1154526c49c50949ddb3dbc07454"></iframe>
+</div>
+	</div>
+	<!-- end of container -->
+</div>
+<!-- end of cards-1 -->
+<!-- end of services -->
+
+
+
+
 
 <!-- Modal d'annonce -->
 <div class="modal fade" id="modal_annonce" tabindex="-1"
@@ -128,5 +171,4 @@
 		</div>
 	</div>
 </div>
-
 <c:import url="/Footer"></c:import>

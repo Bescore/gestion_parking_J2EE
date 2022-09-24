@@ -41,6 +41,7 @@ public class Deconnexion extends HttpServlet {
 		session.setAttribute("id_user", null);
 		session.setAttribute("token", null);
 		session.setAttribute("Apayer", null);
+		session.setAttribute("vehicule", null);
 
 		response.sendRedirect(request.getContextPath() + "/Login");
 	}
