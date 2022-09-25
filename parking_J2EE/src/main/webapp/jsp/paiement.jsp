@@ -76,7 +76,12 @@
 							<!-- mettre paiment ici ici -->
 							<p id="wannaPay" class="card-body text-center py-0">Payer en quelques cliques</p>
 							<p class="card-body text-center py-0 fw-bold fs-2"><c:out value="${sommeApayer } €"></c:out></p>
+							<c:if test="${sommeApayer>=1 }">
 							<div class="mx-auto" style="width:250px;" ><div id="paypal-button-container"></div></div>
+							</c:if>
+							<c:if test="${sommeApayer<1 }">
+							<div class="mx-auto text-center" >Le minimum pour procéder au paiement est 1€</div>
+							</c:if>
 						</div>
 						</c:if>
 						<c:if test="${ sommeApayer<=0 }">

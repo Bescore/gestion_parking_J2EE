@@ -41,15 +41,15 @@
 						<ul class="list-group list-group-flush rounded-3">
 							<li class="list-group-item text-center p-3 "><c:if
 									test="${!empty listVoitures}">
-									<p class="mb-0 py-3 ">Liste des véhicules utilisés et dates</p>
+									<p class="mb-0 py-3 ">Liste des véhicules utilisés</p>
 
 									<select class="form-select" aria-label="Default select example">
 										<c:forEach items="${listVoitures}" var="element">
 											<option value="${element.id_voitures }"><c:out
-													value="${element.marque } ${element.modele } || ${element.date_heure }"></c:out></option>
+													value="${element.marque } ${element.modele }"></c:out></option>
 										</c:forEach>
 									</select>
-									<input class="btn btn-outline-success rounded-3 my-5" name="choisirVehicule" type="submit" value="Gérer">
+									<input class="btn btn-outline-success rounded-3 my-5" name="choisirVehicule" type="submit" value="Gérer les véhicules">
 								</c:if> <c:if test="${empty listVoitures}">
 									<p class="mb-0 py-5 ">vous ne disposez pas de véhicule</p>
 								</c:if></li>
@@ -65,8 +65,11 @@
 							<div class="col-sm-3">
 								<p class="mb-0">Nom</p>
 							</div>
-							<div class="col-sm-9">
-								<a href="#" class="text-muted text-decoration-none mb-0"><c:out value="${nom }"></c:out></a>
+							<div class="col-sm-7">
+								<a href="#" class="text-muted text-decoration-none mb-0 fw-bold"><c:out value="${nom }"></c:out></a>
+							</div>
+							<div class="col-sm-2">
+								<a href="<%request.getContextPath();%>Infos?action=nom" class="text-muted text-decoration-none mb-0 fw-bold"><i class="fa-solid fa-pen-to-square"></i></a>
 							</div>
 						</div>
 						<hr>
@@ -74,9 +77,12 @@
 							<div class="col-sm-3">
 								<p class="mb-0">Prenom</p>
 							</div>
-							<div class="col-sm-9">
+							<div class="col-sm-7">
 								<a href="#" class="text-muted text-decoration-none mb-0 fw-bold"><c:out
 										value="${prenom }"></c:out></a>
+							</div>
+							<div class="col-sm-2">
+								<a href="<%request.getContextPath();%>Infos?action=prenom" class="text-muted text-decoration-none mb-0 fw-bold"><i class="fa-solid fa-pen-to-square"></i></a>
 							</div>
 						</div>
 						<hr>
@@ -84,19 +90,25 @@
 							<div class="col-sm-3">
 								<p class="mb-0">Email</p>
 							</div>
-							<div class="col-sm-9">
+							<div class="col-sm-7">
 								<a href="#" class="text-muted text-decoration-none mb-0 fw-bold"><c:out
 										value="${email }"></c:out></a>
+							</div>
+							<div class="col-sm-2">
+								<a href="<%request.getContextPath();%>Infos?action=email"  class="text-muted text-decoration-none mb-0 fw-bold"><i class="fa-solid fa-pen-to-square"></i></a>
 							</div>
 						</div>
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Mot de passe</p>
+								<p class="mb-0">Inscrit le</p>
 							</div>
-							<div class="col-sm-9">
+							<div class="col-sm-7">
 								<a href="#" class="text-muted text-decoration-none mb-0 fw-bold"><c:out
-										value="${mot_de_passe }"></c:out>***************</a>
+										value="${date_inscription }"></c:out></a>
+							</div>
+							<div class="col-sm-2">
+								<a href="#" class="text-muted text-decoration-none mb-0 fw-bold"><i class="fa-regular fa-id-badge"></i></a>
 							</div>
 						</div>
 					</div>
@@ -167,7 +179,7 @@
 										<a href="<c:url value="/Historique"></c:url>"  class="mb-0 py-4 ">Historique</a>
 									</li>
 									<li class="list-group-item text-center p-1 ">
-										<a href="<c:url value="#"></c:url>"  class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1 fa-beat" style="--fa-beat-scale: 2.0;"></i> vous devez libérer la place avant de choisir un autre emplacmeent</a>
+										<span  class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1 fa-beat" style="--fa-beat-scale: 2.0;"></i> vous devez libérer la place avant de choisir un autre emplacmeent</span>
 									</li>
 									<c:if test="${ !empty informationsPlaceParking}">
 									<li class="list-group-item text-center p-2 ">

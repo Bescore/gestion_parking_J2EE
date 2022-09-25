@@ -131,4 +131,24 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 		}
 		return newId;
 	}
+	
+	
+	//methode utilisé par le user pour changer ses informations (page infos.java)
+	public boolean UpdateUser(int id_user,String colonne,String nouvelleValeur) {
+		// TODO Auto-generated method stub
+		try {
+			PreparedStatement sql = connect.prepareStatement("Update utilisateur SET "+colonne+"=? WHERE id_utilisateur=?");
+			
+			sql.setString(1,nouvelleValeur);
+			sql.setInt(2,id_user);
+			
+			sql.executeUpdate();
+			System.out.println(sql);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return false;
+	}
 }

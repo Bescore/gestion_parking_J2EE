@@ -125,7 +125,7 @@
 						<h4>
 							Avec Parkfast, vous pouvez garer votre voiture rapidement et facilement, quelle que soit <span> la température !</span>
 						</h4>
-						<a class="btn-outline-lg page-scroll" href="<c:url value="/Login"></c:url>"
+						<a class="btn-outline-lg page-scroll" href="<c:url value="/Signup"></c:url>"
 							>S'inscrire</a
 						>
 					</div>
