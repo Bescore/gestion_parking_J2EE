@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modele.Database;
-import modele.Utilisateur;
 import modele.Voitures;
 
 public class VoituresDao implements Interface <Voitures> {

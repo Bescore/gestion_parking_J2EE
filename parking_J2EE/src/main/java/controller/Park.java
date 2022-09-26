@@ -16,7 +16,6 @@ import modele.Historique;
 import modele.ParkingCookie;
 import modele.Place_parking;
 import modele.Utilisateur;
-import modele.Voitures;
 
 /**
  * Servlet implementation class Park

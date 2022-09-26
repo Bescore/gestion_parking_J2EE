@@ -9,7 +9,6 @@ import modele.Database;
 import modele.Etage;
 import modele.Historique;
 import modele.Place_parking;
-import modele.Utilisateur;
 
 public class HistoriqueDao implements Interface <Historique> {
 	Connection connect = new Database().getConnection();

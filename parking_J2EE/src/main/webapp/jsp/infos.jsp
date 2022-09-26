@@ -55,7 +55,7 @@
 								<div id="emailHelp" class="form-text">En cliquant, vous
 									effectuez une modification.</div>
 							</div>
-							<button type="submit" name="modifier" class="btn btn-primary">Valider</button>
+							<button type="submit" name="modifier" class="btn btn-outline-primary">Valider</button>
 
 						</div>
 

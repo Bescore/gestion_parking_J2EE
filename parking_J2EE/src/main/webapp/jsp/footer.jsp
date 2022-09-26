@@ -29,14 +29,14 @@
 							class="fas fa-circle fa-stack-2x"></i> <i
 							class="fab fa-facebook-f fa-stack-1x"></i>
 					</a>
-					</span> <span class="fa-stack"> <a href="https://twitter.com/?lang=fr"> <i
-							class="fas fa-circle fa-stack-2x"></i> <i
-							class="fab fa-twitter fa-stack-1x"></i>
+					</span> <span class="fa-stack"> <a title="site de référence" href="https://cool-praline-82e1db.netlify.app"> <i
+							class="fas fa-circle fa-stack-2x"></i> 
+							<i class="fa-solid fa-car-side fa-stack-1x"></i>
 					</a>
-					</span> <span class="fa-stack"> <a href="https://www.linkedin.com/in/jean-marie-lator-74543a202/"> <i
+					</span> <span class="fa-stack"> <a title="linkedin" href="https://www.linkedin.com/in/jean-marie-lator-74543a202/"> <i
 							class="fas fa-circle fa-stack-2x"></i> <i class="fa-brands fa-linkedin-in fa-stack-1x"></i>
 					</a>
-					</span> <span class="fa-stack"> <a href="https://github.com/Bescore"> <i
+					</span> <span class="fa-stack"> <a title="github" href="https://github.com/Bescore"> <i
 							class="fas fa-circle fa-stack-2x"></i> <i class="fa-brands fa-github fa-stack-1x"></i>
 					</a>
 					</span>
