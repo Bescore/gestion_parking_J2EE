@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 <c:import url="/Header"></c:import>
 <script defer src="js/paypal.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=ASmAjCJ8vp4dGasQgcAOTX4DhGT-9Ip-bKb3UE1u7r08dM6ZVMZ_-Tlkrxi1OgHiRGx87VevAkZO0TRZ&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AT_x8pu54r3q_wqaOm1HZ_PTNDc8XkDfPxCzYDNZ3lQoBRt8_p6Cm9-83gghAWadYCQRZEITcrs0jPod&currency=USD"></script>
 <!-- Header -->
 <header class="ex-header">
 	<div class="container">
@@ -62,7 +62,7 @@
 										<input class="btn btn-outline-success rounded-3 my-5"
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
-										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute sommes dû et non réglé vous expose à des poursuites judicdiaires </p>
+										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toutes sommes dues et non réglées vous expose à des poursuites judicdiaires </p>
 									</li>
 							</ul>
 						</div>

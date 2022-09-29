@@ -152,7 +152,6 @@
 
 
 
-
 <!-- Modal d'annonce -->
 <div class="modal fade" id="modal_annonce" tabindex="-1"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">

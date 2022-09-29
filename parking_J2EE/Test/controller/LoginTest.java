@@ -1,10 +1,10 @@
-package parking_J2EE;
+package controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class Login {
+class LoginTest {
 
 	@Test
 	void test() {

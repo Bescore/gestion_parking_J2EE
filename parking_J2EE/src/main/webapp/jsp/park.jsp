@@ -173,7 +173,7 @@
 
 						</ul>
 						<div class="price">
-							0.6<span>centimes/minutes</span>
+							0.06<span>centimes/minutes</span>
 						</div>
 
 						<div>
