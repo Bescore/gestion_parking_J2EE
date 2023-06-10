@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
+<c:import url="/Header"></c:import>
 <!-- Modal d'annonce -->
 <script defer src="js/modal_annonce.js"></script>
 <!-- Webpage Title -->
 <title>Home</title>
-<c:import url="/Header"></c:import>
-
 <header id="header" class="header">
 	<div class="container">
 		<div class="row">

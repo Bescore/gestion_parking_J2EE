@@ -23,6 +23,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				
 				 
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -60,6 +61,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				sql.setInt(2, object.getPlace_parking().getId_place_parking());
 				
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -105,7 +107,8 @@ public class HistoriqueDao implements Interface <Historique> {
 
 				historiqueTab.add(newHistorique);
 			}
-			
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -126,6 +129,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				
 				
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception

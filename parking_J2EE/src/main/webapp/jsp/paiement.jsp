@@ -62,7 +62,7 @@
 										<input class="btn btn-outline-success rounded-3 my-5"
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
-										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toutes sommes dues et non réglées vous expose à des poursuites judicdiaires </p>
+										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute somme due et non réglée vous expose à des poursuites judiciaires. </p>
 									</li>
 							</ul>
 						</div>

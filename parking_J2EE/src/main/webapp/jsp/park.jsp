@@ -166,9 +166,8 @@
 						<ul class="list-unstyled li-space-lg">
 							<li>Vous devez inscrire votre véhicule</li>
 							<li>Vous vous engagez à régler</li>
-							<li>Si vous ne réglez pas les sommes dû</li>
-							<li>Vous vous exposez à des <strong>poursuites
-									judiciaires </strong></li>
+							<li>Si vous ne réglez pas les sommes dues</li>
+							<li> vous vous exposez à des <strong>poursuites judiciaires </strong></li>
 							<li>(voir les conditions d'utilisations)</li>
 
 						</ul>

@@ -67,7 +67,7 @@ public class Signup extends HttpServlet {
 				Pattern.matches("^[a-zA-Z- ]+$", marque)&&
 				Pattern.matches("^[a-zA-Z-0-9 ]+$", modele)) {
 		
-		if (request.getParameter("s'inscrire") != null && !email.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !password.isEmpty()) {
+		if (request.getParameter("s'inscrire") != null) {
 
 			// intancier et préparer le modèle
 			Utilisateur newUser = new Utilisateur();

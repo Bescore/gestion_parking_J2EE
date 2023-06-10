@@ -54,7 +54,7 @@
 										<input class="btn btn-outline-success rounded-3 my-5"
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
-										<p class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute sommes dû et non réglé vous expose à des poursuites judicdiaires </p>
+										<p class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute somme due et non réglée vous expose à des poursuites judiciaires. </p>
 										<p class="mb-0 py-2"><i class="fa-solid text-success fa-euro-sign mx-1"></i><span class="fs-7">0.06 centimes la minutes</span></p>
 									</li>
 							</ul>
@@ -113,7 +113,7 @@
 								<div class="card-body p-4">
 									<ul class="list-group list-group-flush rounded-3">
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Historique"></c:url>" class="mb-0 py-4 ">Historique</a>
+											href="<c:url value="/Compte"></c:url>" class="mb-0 py-4 ">Retour au compte</a>
 										</li>
 										<li class="list-group-item text-center p-2 "><a
 											href="<c:url value="/Reglement"></c:url>" class="mb-0 py-4 ">Noter mon expérience</a>

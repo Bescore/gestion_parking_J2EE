@@ -17,10 +17,9 @@
 					<ul class="list-unstyled li-space-lg p-small">
 						<li>Important: <a href="terms.html">Terms & Conditions</a>, <a
 							href="privacy.html">Privacy Policy</a></li>
-						<li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon
-								Library</a>, <a href="#">Illustrations</a></li>
-						<li>Menu: <a href="#header">Home</a>, <a href="#features">Features</a>,
-							<a href="#details">Details</a>, <a href="#pricing">Pricing</a></li>
+						<li>Lien du projet: <a href="https://github.com/Bescore/gestion_parking_J2EE"><strong>Gestion de parking en J2EE</strong></a></li>
+						<li>Menu: <a href="#header">Home</a>,
+							<a href="#details">Details</a>, <a href="#pricing">Les prix</a></li>
 					</ul>
 				</div>
 				<!-- end of footer-col -->
@@ -41,7 +40,7 @@
 					</a>
 					</span>
 					<p class="p-small">
-						Nos coordonnées <a href="mailto:contact@site.com"><strong>contact@site.com</strong></a>
+						Nos coordonnées <a href="mailto:contact@site.com"><strong>jean.marie.lator@gmail.com</strong></a>
 					</p>
 				</div>
 				<!-- end of footer-col -->

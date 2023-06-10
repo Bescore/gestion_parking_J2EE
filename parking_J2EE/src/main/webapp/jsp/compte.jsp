@@ -195,8 +195,7 @@
 										<li class="list-group-item text-center p-1 "><span
 											class="mb-0 py-4 "><i
 												class="fa-solid text-warning fa-triangle-exclamation mx-1 fa-beat"
-												style="-fa-beat-scale: 2.0;"></i> vous devez libérer la
-												place avant de choisir un autre emplacmeent</span></li>
+												style="-fa-beat-scale: 2.0;"></i> Vous devez libérer la place avant de choisir un autre emplacement.</span></li>
 										<c:if test="${ !empty informationsPlaceParking}">
 											<li class="list-group-item text-center p-2 ">
 												<button type="button" data-bs-toggle="modal"

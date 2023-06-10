@@ -143,7 +143,6 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 			sql.setInt(2,id_user);
 			
 			sql.executeUpdate();
-			System.out.println(sql);
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
