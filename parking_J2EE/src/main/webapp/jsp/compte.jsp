@@ -33,7 +33,7 @@
 								<c:out value="${prenom }"></c:out>
 								<c:out value="${nom }"></c:out>
 							</h5>
-							<p class="text-muted mb-1">Accès totale</p>
+							<p class="text-muted mb-1">Accès total</p>
 						</div>
 					</div>
 					<div class="card mb-4 mb-lg-0">
@@ -50,9 +50,7 @@
 														value="${element.marque } ${element.modele }"></c:out></option>
 											</c:forEach>
 										</select>
-										<input class="btn btn-outline-success rounded-3 my-5"
-											name="choisirVehicule" type="submit"
-											value="Gérer les véhicules">
+										<a class="btn btn-outline-success rounded-3 my-5" href="<%request.getContextPath();%>vehicules">Gérer les véhicules</a>
 									</c:if> <c:if test="${empty listVoitures}">
 										<p class="mb-0 py-5 ">vous ne disposez pas de véhicule</p>
 									</c:if></li>

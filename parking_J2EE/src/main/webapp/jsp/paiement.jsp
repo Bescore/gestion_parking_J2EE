@@ -118,7 +118,7 @@
 											href="<c:url value="/Historique"></c:url>" class="mb-0 py-4 ">Historique</a>
 										</li>
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Reglement"></c:url>" class="mb-0 py-4 ">Règlement</a>
+											href="<c:url value="#"></c:url>" class="mb-0 py-4 ">Règlement</a>
 										</li>
 										<li class="list-group-item text-center p-3 ">
 											<a href="<c:url value="/Compte"></c:url>" name="libererPlace"  class="mb-0 text-decoration-none btn btn-outline-primary rounded-4 my-1"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Mon compte</a>

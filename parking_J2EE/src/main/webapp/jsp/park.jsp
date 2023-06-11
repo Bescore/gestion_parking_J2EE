@@ -51,11 +51,11 @@
 										test="${element.utilisateur.id_utilisateur==0|| empty element.utilisateur.id_utilisateur}">
 										<div class="p-4 image_parking"
 											style="border: 1px #f3f3f3 solid; display: inline-block;">
-											<input class="form-check-input" type="radio"
+											<label style="position:relative; top:-2px; right:-8px;" class="fs-4" for='${element.id_place_parking }'>${element.nom_place }</label>
+											<input style="position:absolute" id="${element.id_place_parking }" class="form-check-input" type="radio"
 												name="choix_place" value="${element.id_place_parking }"
-												value="XXX"> <span class="fs-3"><c:out
-													value="${element.nom_place }"></c:out> </span><i
-												class="text-success fa-solid fa-circle-check"></i>
+												value="XXX"> <span class="fs-3"></span><i
+												style="position:relative; right:-20px;top:-30px;" class="text-success fa-solid fa-circle-check"></i>
 										</div>
 									</c:when>
 
@@ -63,11 +63,12 @@
 										test="${element.utilisateur.id_utilisateur!=0|| !empty element.utilisateur.id_utilisateur}">
 										<div class="p-4 image_parking"
 											style="border: 1px #f3f3f3 solid; display: inline-block;">
-											<input class="form-check-input" type="radio"
+											<label style="position:relative; top:-2px; right:-8px;" class="fs-4" for='${element.id_place_parking }'>${element.nom_place }</label>
+											<input style="position:absolute" class="form-check-input" type="radio"
 												name="choix_place" value="${element.id_place_parking }"
 												disabled> <span class="fs-2"><c:out
 													value="${element.nom_place }"></c:out> </span> <i
-												class=" text-danger fa-solid fa-xmark"></i>
+												style="position:relative;right:-20px;top:-30px;" class=" text-danger fa-solid fa-xmark"></i>
 										</div>
 									</c:when>
 								</c:choose>
@@ -99,20 +100,25 @@
 
 						<c:if test="${!empty isconnected }">
 							<h4> Véhicules</h4>
-							<select name="vehicule" class="form-select my-3" aria-label="Default select example">
-										<c:forEach items="${listVoitures}" var="element">
-											<option value="${element.id_voitures }"><c:out
-													value="${element.marque } ${element.modele }"></c:out></option>
-										</c:forEach>
+								<c:if test="${!empty listVoitures }">
+									<select name="vehicule" class="form-select my-3" aria-label="Default select example">
+										
+											<c:forEach items="${listVoitures}" var="element">
+												<option value="${element.id_voitures }"><c:out
+														value="${element.marque } ${element.modele }"></c:out></option>
+											</c:forEach>
 									</select>
+								</c:if>
 						</c:if>
 						<c:if test="${!empty isconnected }">
-							<button name="valider_choix_de_place" type="submit"
-								class="btn-solid-reg">Valider</button>
+							<c:if test="${!empty listVoitures }">
+								<button name="valider_choix_de_place" type="submit"
+									class="btn-solid-reg">Valider</button>
+							</c:if>
 						</c:if>
 						<c:if test="${empty isconnected }">
-							<a id="modalCtaBtn" href="<%request.getContextPath();%>Login"
-								class="btn-solid-reg">Valider</a>
+								<a id="modalCtaBtn" href="<%request.getContextPath();%>Login"
+									class="btn-solid-reg">Valider</a>
 						</c:if>
 
 						<button type="button" class="btn-outline-reg"
@@ -159,7 +165,7 @@
 					<div class="card-body mx-auto">
 						<div class="card-title">
 							<img class="decoration-lines" src="images/decoration-lines.svg"
-								alt="alternative" /><span>Accès totale </span><img
+								alt="alternative" /><span>Accès total </span><img
 								class="decoration-lines flipped"
 								src="images/decoration-lines.svg" alt="alternative" />
 						</div>

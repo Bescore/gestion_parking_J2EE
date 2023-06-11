@@ -92,7 +92,7 @@
 						<h4 class="card-title">Contact</h4>
 						<p>
 							Vous avez la possibilité de <a
-								href="<c:url value="/contact"></c:url>">nous contacter</a> à
+								href="<c:url value="home#footer"></c:url>">nous contacter</a> à
 							tout moment. Un conseiller vous accompagnera tout au long du
 							processus.
 						</p>
@@ -138,6 +138,7 @@
 <!-- Features -->
 <div id="features" class="cards-1">
 	<div class="container">
+	<p>Lorsqu'il s'agit de se garer, il est essentiel de prendre en compte les conditions météorologiques. Opter pour une place de parking plutôt que de laisser sa voiture à l'extérieur peut présenter de nombreux avantages, surtout en cas de mauvais temps.</p>
 		
 		<!-- end of row -->
 		<div class="container d-flex justify-content-center my-5">

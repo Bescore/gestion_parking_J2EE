@@ -79,7 +79,7 @@
 								<tbody>
 								<c:forEach items="${historique}" var="element">
 									<tr>
-										<th scope="row"><c:out value="${element.id_historique }"></c:out></th>
+										<th scope="row"><c:out value=""></c:out></th>
 										<td><c:out value="${element.duree_occupation }"></c:out></td>
 										<td><c:out value="${element.date_attribution}"></c:out></td>
 										<td><c:out value="${element.place_parking.nom_place }"></c:out></td>
@@ -116,7 +116,7 @@
 											href="<c:url value="/Compte"></c:url>" class="mb-0 py-4 ">Retour au compte</a>
 										</li>
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Reglement"></c:url>" class="mb-0 py-4 ">Noter mon expérience</a>
+											href="<c:url value="#"></c:url>" class="mb-0 py-4 ">Noter mon expérience</a>
 										</li>
 										<li class="list-group-item text-center p-3 ">
 											<a href='<c:url value="/Paiement"></c:url>'  class="mb-0 text-decoration-none btn btn-outline-success rounded-4 my-1"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Payer</a>

@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 
 <!-- Footer -->
-<div class="footer">
+<div id="footer" class="footer">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -15,11 +15,11 @@
 				<div class="footer-col second">
 					<h6>Liens</h6>
 					<ul class="list-unstyled li-space-lg p-small">
-						<li>Important: <a href="terms.html">Terms & Conditions</a>, <a
-							href="privacy.html">Privacy Policy</a></li>
+						<li>Important: <a href="terms.html">les conditions d'utilisation</a>, <a
+							href="privacy.html">politique de confidentialité</a></li>
 						<li>Lien du projet: <a href="https://github.com/Bescore/gestion_parking_J2EE"><strong>Gestion de parking en J2EE</strong></a></li>
-						<li>Menu: <a href="#header">Home</a>,
-							<a href="#details">Details</a>, <a href="#pricing">Les prix</a></li>
+						<li>Menu: <a href="<%request.getContextPath();%>home#header">Accueil</a>,
+							<a href="<%request.getContextPath();%>Park#details">Details</a>, <a href="<%request.getContextPath();%>Park#pricing">Les prix</a></li>
 					</ul>
 				</div>
 				<!-- end of footer-col -->
@@ -40,7 +40,8 @@
 					</a>
 					</span>
 					<p class="p-small">
-						Nos coordonnées <a href="mailto:contact@site.com"><strong>jean.marie.lator@gmail.com</strong></a>
+						Nos coordonnées<br>
+						Développeur Web <a href="mailto:contact@site.com"><strong>jean.marie.lator@gmail.com</strong></a>
 					</p>
 				</div>
 				<!-- end of footer-col -->

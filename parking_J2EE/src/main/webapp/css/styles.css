@@ -1510,6 +1510,30 @@ a:hover {
 		margin-right: 2.875rem;
 		margin-left: 2.875rem;
 	}
+	/*custom*/
+	input[type=radio]{
+		opacity:0;
+	}
+	label:hover{
+		cursor:pointer;
+	}
+	input[type=radio]:checked{
+		opacity:1;
+	}
+	
+	
 	/* end of extra pages */
 }
 /* end of min-width 1200px */
+
+/*custumisation du badge de nom/prenom*/
+@media (max-width:991px){
+	
+		.pill-name{
+			margin-top:8px;
+			margin-bottom:8px;
+			width:170px;
+		}
+	
+}
+/*fin custumisation du badge de nom/prenom*/
