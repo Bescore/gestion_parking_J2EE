@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <c:import url="/Header"></c:import>
+<title>Paiement</title>
 <script defer src="js/paypal.js"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=AT_x8pu54r3q_wqaOm1HZ_PTNDc8XkDfPxCzYDNZ3lQoBRt8_p6Cm9-83gghAWadYCQRZEITcrs0jPod&currency=USD"></script>
 <!-- Header -->

@@ -5,7 +5,7 @@
 <!-- Modal d'annonce -->
 <script defer src="js/modal_annonce.js"></script>
 <!-- Webpage Title -->
-<title>Home</title>
+<title>Accueil</title>
 <header id="header" class="header">
 	<div class="container">
 		<div class="row">

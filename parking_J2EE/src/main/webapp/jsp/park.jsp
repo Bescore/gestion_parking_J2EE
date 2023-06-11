@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <c:import url="/Header"></c:import>
+<title>Me garer</title>
 
 <!-- Details 1 -->
 <div id="details" class="basic-1 bg-gray">
