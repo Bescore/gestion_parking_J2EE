@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import modele.Database;
-import modele.Utilisateur;
 import modele.Voitures;
 
 public class VoituresDao implements Interface <Voitures> {
@@ -55,7 +54,7 @@ public class VoituresDao implements Interface <Voitures> {
 		
 		ArrayList<Voitures> voitureTab= new ArrayList<Voitures>();
 		try {
-			PreparedStatement sql = connect.prepareStatement("SELECT * FROM voitures where utilisateur=?");
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM voitures where utilisateur=? ORDER BY date_heure DESC");
 			
 			sql.setInt(1, id_user);
 			
@@ -80,5 +79,23 @@ public class VoituresDao implements Interface <Voitures> {
 			e.getMessage();
 		}
 		return voitureTab;
+	}
+	
+	
+	//utilisé lors de la selection de la place de parking pour designer le dernier vehicule de l'utilisateur
+	public boolean UpdateDate_heure(int id_voiture) {
+		// TODO Auto-generated method stub
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE voitures SET date_heure=now() WHERE id_voitures=?");
+			
+			sql.setInt(1, id_voiture);
+			
+			sql.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return false;
 	}
 }

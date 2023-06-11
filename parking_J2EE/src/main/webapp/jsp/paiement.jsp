@@ -2,7 +2,7 @@
 	pageEncoding="utf-8"%>
 <c:import url="/Header"></c:import>
 <script defer src="js/paypal.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=ASmAjCJ8vp4dGasQgcAOTX4DhGT-9Ip-bKb3UE1u7r08dM6ZVMZ_-Tlkrxi1OgHiRGx87VevAkZO0TRZ&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AT_x8pu54r3q_wqaOm1HZ_PTNDc8XkDfPxCzYDNZ3lQoBRt8_p6Cm9-83gghAWadYCQRZEITcrs0jPod&currency=USD"></script>
 <!-- Header -->
 <header class="ex-header">
 	<div class="container">
@@ -62,7 +62,7 @@
 										<input class="btn btn-outline-success rounded-3 my-5"
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
-										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute sommes dû et non réglé vous expose à des poursuites judicdiaires </p>
+										<p class="mb-0 py-5 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute somme due et non réglée vous expose à des poursuites judiciaires. </p>
 									</li>
 							</ul>
 						</div>
@@ -76,7 +76,12 @@
 							<!-- mettre paiment ici ici -->
 							<p id="wannaPay" class="card-body text-center py-0">Payer en quelques cliques</p>
 							<p class="card-body text-center py-0 fw-bold fs-2"><c:out value="${sommeApayer } €"></c:out></p>
+							<c:if test="${sommeApayer>=1 }">
 							<div class="mx-auto" style="width:250px;" ><div id="paypal-button-container"></div></div>
+							</c:if>
+							<c:if test="${sommeApayer<1 }">
+							<div class="mx-auto text-center" >Le minimum pour procéder au paiement est 1€</div>
+							</c:if>
 						</div>
 						</c:if>
 						<c:if test="${ sommeApayer<=0 }">
@@ -113,7 +118,7 @@
 											href="<c:url value="/Historique"></c:url>" class="mb-0 py-4 ">Historique</a>
 										</li>
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Reglement"></c:url>" class="mb-0 py-4 ">Règlement</a>
+											href="<c:url value="#"></c:url>" class="mb-0 py-4 ">Règlement</a>
 										</li>
 										<li class="list-group-item text-center p-3 ">
 											<a href="<c:url value="/Compte"></c:url>" name="libererPlace"  class="mb-0 text-decoration-none btn btn-outline-primary rounded-4 my-1"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Mon compte</a>

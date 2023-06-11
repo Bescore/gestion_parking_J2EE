@@ -62,8 +62,8 @@ public class Compte extends HttpServlet {
 		if(newVoiture.findByIdUtilisateur(id_user).size()!=0){
 		request.setAttribute("listVoitures", newVoiture.findByIdUtilisateur(id_user));
 		
-		//recuperer le dernier vehicule utilisé (tableau.get(taille du tableau moins 1)
-		request.setAttribute("derniereVoiture", newVoiture.findByIdUtilisateur(id_user).get(newVoiture.findByIdUtilisateur(id_user).size()-1));
+		//recuperer le dernier vehicule utilisé (via la requete plus haut order by date_heure desc , c'est donc le premier element du tableau)
+		request.setAttribute("derniereVoiture", newVoiture.findByIdUtilisateur(id_user).get(0));
 		
 		//(fin) Si l'utilisateur dispose de véhicule
 		}

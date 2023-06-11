@@ -106,10 +106,10 @@
 					</span>
 				</c:if>
 				<c:if test="${!empty isconnected }">
-					<span
-						class="nav-item bg-light p-2 border border-danger rounded-pill text-dark text-center" ><span
+					<div
+						class="nav-item bg-light pill-name p-2 border border-danger rounded-pill text-dark text-center " ><span
 						class="mx-1"><i class="fa-solid fa-user-ninja fa-bounce"></i></span> <c:out
-							value="${prenom } ${nom}"></c:out></span>
+							value="${prenom } ${nom}"></c:out></div>
 				</c:if>
 				<c:if test="${!empty isconnected }">
 					<li class="nav-item"> <a class="btn-outline-sm"

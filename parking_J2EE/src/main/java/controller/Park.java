@@ -16,7 +16,6 @@ import modele.Historique;
 import modele.ParkingCookie;
 import modele.Place_parking;
 import modele.Utilisateur;
-import modele.Voitures;
 
 /**
  * Servlet implementation class Park
@@ -39,6 +38,11 @@ public class Park extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+	
+		
+		
+		
 		
 		//Afficher les places de parking
 		
@@ -48,6 +52,25 @@ public class Park extends HttpServlet {
 		//faire un read et setAttribute du resultat
 		request.setAttribute("placeParkingTab", newPlaceDao.Read());
 		
+		if (session.getAttribute("id_user")!=null) {
+		//id_user
+		int id_user=(int)(session.getAttribute("id_user"));	
+			
+			
+		//Afficher les voitures dans le select
+		//instancier un utilisateur (pour l'y ajouter à Voitures)
+		Utilisateur newUser=new Utilisateur();
+		
+		newUser.setId_utilisateur(id_user);
+		
+		
+		//instancier VoituresDao et setAttribute
+		VoituresDao newVoiture=new VoituresDao();
+		
+		//recuperer list voiture
+		request.setAttribute("listVoitures", newVoiture.findByIdUtilisateur(id_user));
+		
+		}
 		
 		request.getRequestDispatcher("jsp/park.jsp").forward(request, response);
 	}
@@ -59,16 +82,14 @@ public class Park extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		//recuperer marque
-		String marque =request.getParameter("marque");
-		//recuperer modele
-		String modele =request.getParameter("modele");
+		int vehicule =Integer.valueOf(request.getParameter("vehicule"));
 		//recuperer le token en session
 		String token=String.valueOf(session.getAttribute("token"));
 		
 		
 		
-		if(request.getParameter("valider_choix_de_place")!=null && marque!=null&& !marque.isEmpty()&&
-				modele!=null&&!modele.isEmpty()&&request.getParameter("choix_place")!=null) {
+		if(request.getParameter("valider_choix_de_place")!=null && vehicule!=0&&
+				request.getParameter("choix_place")!=null) {
 			
 			//on utilise la fonction qui va recuperer le cookie
 			String cookie=ParkingCookie.recupererCookie(request,token);
@@ -84,23 +105,13 @@ public class Park extends HttpServlet {
 				Place_parkingDao newPlaceDao=new Place_parkingDao();
 				
 				if(newPlaceDao.finbyIdUtilisateur(id_user)==null) {
+				//mettre le modele et marque du vehicule en session(que je recupere dans vehicule)
+				session.setAttribute("vehicule", vehicule);
 				//instancier un utilisateur (pour l'y ajouter à Voitures)
 				Utilisateur newUser=new Utilisateur();
 				
 				newUser.setId_utilisateur(id_user);
 				
-				
-				//Instancier un modele voiture
-				Voitures newVoiture=new Voitures();
-			
-				newVoiture.setMarque(marque);
-				newVoiture.setModele(modele);
-				newVoiture.setUtilisateur(newUser);
-				
-				//Instancier VoitureDao(pour realiser le creater)
-				VoituresDao newVoitureDao=new VoituresDao();
-				
-				newVoitureDao.Create(newVoiture);
 				
 				//executer une autre méthode de parkingdao
 				newPlaceDao.UpdateUtilisateur(idPlaceParking, id_user);
@@ -119,6 +130,15 @@ public class Park extends HttpServlet {
 				HistoriqueDao newHistoriqueDao=new HistoriqueDao();
 				
 				newHistoriqueDao.Create(newHistorique);
+				
+				//faire un update du vehicule en select pour le designer comme celui choisi par l'utilisateur(Upt date_heure)
+				
+				//instancier VoituresDao 
+				VoituresDao newVoiture=new VoituresDao();
+				
+				//declencher la fonction update
+				newVoiture.UpdateDate_heure(vehicule);
+				
 				}
 				response.sendRedirect(request.getContextPath() + "/Compte");
 				//si le token ne correspond pas on déconnecte l'utilisateur

@@ -7,18 +7,26 @@ public class Voitures {
 	private String modele;
 	private Utilisateur utilisateur;
 	private String date_heure;
+	private int isActive_voiture;
 
+	
+	
 	public Voitures() {
 		super();
 	}
 
-	public Voitures(int id_voitures, String marque, String modele, Utilisateur utilisateur) {
+	public Voitures(int id_voitures, String marque, String modele, Utilisateur utilisateur, String date_heure,
+			int isActive_voiture) {
 		super();
 		Id_voitures = id_voitures;
 		this.marque = marque;
 		this.modele = modele;
-		this.setUtilisateur(utilisateur);
+		this.utilisateur = utilisateur;
+		this.date_heure = date_heure;
+		this.isActive_voiture = isActive_voiture;
 	}
+
+
 
 	public int getId_voitures() {
 		return Id_voitures;
@@ -59,12 +67,23 @@ public class Voitures {
 	public void setDate_heure(String date_heure) {
 		this.date_heure = date_heure;
 	}
+	
+
+	public int getIsActive_voiture() {
+		return isActive_voiture;
+	}
+
+	public void setIsActive_voiture(int isActive_voiture) {
+		this.isActive_voiture = isActive_voiture;
+	}
 
 	@Override
 	public String toString() {
 		return "Voitures [Id_voitures=" + Id_voitures + ", marque=" + marque + ", modele=" + modele + ", utilisateur="
-				+ utilisateur + ", date_heure=" + date_heure + "]";
+				+ utilisateur + ", date_heure=" + date_heure + ", isActive_voiture=" + isActive_voiture + "]";
 	}
+
+	
 
 	
 }

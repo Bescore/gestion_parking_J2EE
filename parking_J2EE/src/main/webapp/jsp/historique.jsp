@@ -54,8 +54,8 @@
 										<input class="btn btn-outline-success rounded-3 my-5"
 											name="choisirVehicule" type="submit" value="Gérer">
 									</c:if> 
-										<p class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute sommes dû et non réglé vous expose à des poursuites judicdiaires </p>
-										<p class="mb-0 py-2"><i class="fa-solid text-success fa-euro-sign mx-1"></i><span class="fs-7">0.6 centimes la minutes</span></p>
+										<p class="mb-0 py-4 "><i class="fa-solid text-warning fa-triangle-exclamation mx-1"></i>Attention, toute somme due et non réglée vous expose à des poursuites judiciaires. </p>
+										<p class="mb-0 py-2"><i class="fa-solid text-success fa-euro-sign mx-1"></i><span class="fs-7">0.06 centimes la minutes</span></p>
 									</li>
 							</ul>
 						</div>
@@ -79,7 +79,7 @@
 								<tbody>
 								<c:forEach items="${historique}" var="element">
 									<tr>
-										<th scope="row"><c:out value="${element.id_historique }"></c:out></th>
+										<th scope="row"><c:out value=""></c:out></th>
 										<td><c:out value="${element.duree_occupation }"></c:out></td>
 										<td><c:out value="${element.date_attribution}"></c:out></td>
 										<td><c:out value="${element.place_parking.nom_place }"></c:out></td>
@@ -113,13 +113,13 @@
 								<div class="card-body p-4">
 									<ul class="list-group list-group-flush rounded-3">
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Historique"></c:url>" class="mb-0 py-4 ">Historique</a>
+											href="<c:url value="/Compte"></c:url>" class="mb-0 py-4 ">Retour au compte</a>
 										</li>
 										<li class="list-group-item text-center p-2 "><a
-											href="<c:url value="/Reglement"></c:url>" class="mb-0 py-4 ">Règlement</a>
+											href="<c:url value="#"></c:url>" class="mb-0 py-4 ">Noter mon expérience</a>
 										</li>
 										<li class="list-group-item text-center p-3 ">
-											<a href='<c:url value="/Paiement"></c:url>' name="libererPlace"  class="mb-0 text-decoration-none btn btn-outline-success rounded-4 my-1"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Payer</a>
+											<a href='<c:url value="/Paiement"></c:url>'  class="mb-0 text-decoration-none btn btn-outline-success rounded-4 my-1"><i class="fa-solid fa-cog fa-spin mx-1" style="--fa-animation-duration: 7s;"></i>Payer</a>
 										</li>
 									</ul>
 								</div>

@@ -9,7 +9,6 @@ import modele.Database;
 import modele.Etage;
 import modele.Place_parking;
 import modele.Utilisateur;
-import modele.Voitures;
 
 public class Place_parkingDao implements Interface<Place_parking> {
 	Connection connect = new Database().getConnection();

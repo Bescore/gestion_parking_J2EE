@@ -9,7 +9,6 @@ import modele.Database;
 import modele.Etage;
 import modele.Historique;
 import modele.Place_parking;
-import modele.Utilisateur;
 
 public class HistoriqueDao implements Interface <Historique> {
 	Connection connect = new Database().getConnection();
@@ -24,6 +23,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				
 				 
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -61,6 +61,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				sql.setInt(2, object.getPlace_parking().getId_place_parking());
 				
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -106,7 +107,8 @@ public class HistoriqueDao implements Interface <Historique> {
 
 				historiqueTab.add(newHistorique);
 			}
-			
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -127,6 +129,7 @@ public class HistoriqueDao implements Interface <Historique> {
 				
 				
 				sql.executeUpdate();
+				sql.close();
 				return true;
 			} catch (Exception e) {
 				// TODO: handle exception

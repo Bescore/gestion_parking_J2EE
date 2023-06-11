@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UtilisateurDao;
+import dao.VoituresDao;
 import modele.Utilisateur;
+import modele.Voitures;
 
 /**
  * Servlet implementation class Signup
@@ -52,6 +54,8 @@ public class Signup extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String password = request.getParameter("password");
+		String marque = request.getParameter("marque");
+		String modele = request.getParameter("modele");
 		
 		/*System.out.println(password);
 		System.out.println(Pattern.matches("^[a-zA-Z- ]+$",nom));*/
@@ -59,9 +63,11 @@ public class Signup extends HttpServlet {
 		if(Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email)&&
 				Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}.]:;',?/*~$^+=<>]).{8,20}$", password)&&
 				Pattern.matches("^[a-zA-Z- ]+$", nom)&&
-				Pattern.matches("^[a-zA-Z- ]+$", prenom)) {
+				Pattern.matches("^[a-zA-Z- ]+$", prenom)&&
+				Pattern.matches("^[a-zA-Z- ]+$", marque)&&
+				Pattern.matches("^[a-zA-Z-0-9 ]+$", modele)) {
 		
-		if (request.getParameter("s'inscrire") != null && !email.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !password.isEmpty()) {
+		if (request.getParameter("s'inscrire") != null) {
 
 			// intancier et préparer le modèle
 			Utilisateur newUser = new Utilisateur();
@@ -74,7 +80,25 @@ public class Signup extends HttpServlet {
 
 			// instancier utilisateurDao et faire le create dans la BDD
 			UtilisateurDao newUserDao = new UtilisateurDao();
-			newUserDao.Create(newUser);
+			
+			//recuperer l'id du user créé
+			int newId_user=newUserDao.CreateGetId(newUser);
+			
+			//Ajouter id au user
+			newUser.setId_utilisateur(newId_user);
+			
+			
+			//Instancier un modele voiture
+			Voitures newVoiture=new Voitures();
+		
+			newVoiture.setMarque(marque);
+			newVoiture.setModele(modele);
+			newVoiture.setUtilisateur(newUser);
+			
+			//Instancier VoitureDao(pour realiser le creater)
+			VoituresDao newVoitureDao=new VoituresDao();
+			
+			newVoitureDao.Create(newVoiture);
 			
 			// afficher le modale de validation
 			request.setAttribute("erreur_inscription", null) ;
