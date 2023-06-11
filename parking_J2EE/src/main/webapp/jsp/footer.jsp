@@ -15,8 +15,8 @@
 				<div class="footer-col second">
 					<h6>Liens</h6>
 					<ul class="list-unstyled li-space-lg p-small">
-						<li>Important: <a href="terms.html">les conditions d'utilisation</a>, <a
-							href="privacy.html">politique de confidentialité</a></li>
+						<li>Important: <a href="#">les conditions d'utilisation</a>, <a
+							href="#">politique de confidentialité</a></li>
 						<li>Lien du projet: <a href="https://github.com/Bescore/gestion_parking_J2EE"><strong>Gestion de parking en J2EE</strong></a></li>
 						<li>Menu: <a href="<%request.getContextPath();%>home#header">Accueil</a>,
 							<a href="<%request.getContextPath();%>Park#details">Details</a>, <a href="<%request.getContextPath();%>Park#pricing">Les prix</a></li>

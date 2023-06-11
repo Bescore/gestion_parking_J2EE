@@ -43,15 +43,19 @@
 								<li class="list-group-item text-center p-3 "><c:if
 										test="${!empty listVoitures}">
 										<p class="mb-0 py-3 ">Liste des véhicules utilisés</p>
-
-										<select class="form-select"
-											aria-label="Default select example">
-											<c:forEach items="${listVoitures}" var="element">
-												<option value="${element.id_voitures }"><c:out
-														value="${element.marque } ${element.modele }"></c:out></option>
-											</c:forEach>
-										</select>
-										<a class="btn btn-outline-success rounded-3 my-5" href="<%request.getContextPath();%>vehicules">Gérer les véhicules</a>
+										<c:if test="${listVoitures.size()>1}">
+											<select class="form-select"
+												aria-label="Default select example">
+												<c:forEach items="${listVoitures}" var="element">
+													<option value="${element.id_voitures }"><c:out
+															value="${element.marque } ${element.modele }"></c:out></option>
+												</c:forEach>
+											</select>
+										</c:if>
+										<c:if test="${listVoitures.size()==1}">
+										<span>Vous disposez d'un seul véhicule</span>
+										</c:if>
+										<a class="btn btn-outline-primary rounded-3 my-5 " href="<%request.getContextPath();%>vehicules">Gérer les véhicules</a>
 									</c:if> <c:if test="${empty listVoitures}">
 										<p class="mb-0 py-5 ">vous ne disposez pas de véhicule</p>
 									</c:if></li>
@@ -161,7 +165,7 @@
 													<c:out
 														value="${informationsPlaceParking.etage.numero_etage }"></c:out>
 												</p>
-												<p class="mb-0 py-2 ">Véhicule</p> <c:if
+												<p class="mb-0 py-2 "> Dernier Véhicule utilisé</p> <c:if
 													test="${empty derniereVoiture  }">
 													<p class="mb-0 fw-bold">Vous ne disposez d'aucun
 														véhicule</p>

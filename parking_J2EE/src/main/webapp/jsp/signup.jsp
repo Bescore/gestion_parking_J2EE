@@ -103,8 +103,8 @@
 							<input type="checkbox" class="form-check-input"
 								id="exampleCheck1" required> <label
 								class="form-check-label" for="exampleCheck1">Je suis
-								d'accord avec la <a href="privacy.html">politique de
-									confidentialité</a> et <a href="terms.html">les conditions
+								d'accord avec la <a href="#">politique de
+									confidentialité</a> et <a href="#">les conditions
 									d'utilisation</a>
 							</label>
 						</div>
